@@ -8,3 +8,7 @@ The core, site-specific plugin for the Propaganda Report website.
 ![ACF Ready](https://img.shields.io/badge/ACF-Ready-00d3ae.svg?style=flat-square)
 
 ![Propaganda Report Plugin Cover Image](https://github.com/ControlledChaos/propreport/raw/main/cover.jpg)
+
+## Compatibility
+
+This plugin is built specifically for use with ClassicPress so until or unless they are compatible with PHP 8.0+ the minimum PHP version shall remain at 7.4. This plugin will not be tested on WordPress.
