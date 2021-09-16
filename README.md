@@ -12,3 +12,5 @@ The core, site-specific plugin for the Propaganda Report website.
 ## Compatibility
 
 This plugin is built specifically for use with ClassicPress so until or unless they are compatible with PHP 8.0+ the minimum PHP version shall remain at 7.4. This plugin will not be tested on WordPress.
+
+Some of this plugin's functionality relies on the Advanced Custom Fields Pro plugin and the BuddyBoss Platform plugin being installed and active.
