@@ -2,7 +2,7 @@
 /**
  * Output for sample page content
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Views
  * @category   Admin
  * @since      1.0.0

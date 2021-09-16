@@ -6,14 +6,14 @@
  * its new class name. Add to the autoloader
  * and instantiate where appropriate.
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Core
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Core;
+namespace PropReport\Classes\Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -157,9 +157,9 @@ class Register_Sample_Type extends Register_Type {
 		$type_obj  = get_post_type_object( $post_type );
 
 		// New post type labels.
-		$type_obj->labels->menu_name = __( 'Sample', 'sitecore' );
-		$type_obj->labels->all_items = __( 'All Samples', 'sitecore' );
-		$type_obj->labels->add_new   = __( 'New Sample', 'sitecore' );
+		$type_obj->labels->menu_name = __( 'Sample', 'propreport' );
+		$type_obj->labels->all_items = __( 'All Samples', 'propreport' );
+		$type_obj->labels->add_new   = __( 'New Sample', 'propreport' );
 	}
 
 	/**
@@ -181,13 +181,13 @@ class Register_Sample_Type extends Register_Type {
 				'core/heading',
 				[
 					'level'       => 2,
-					'placeholder' => __( 'Sample Heading', 'sitecore' )
+					'placeholder' => __( 'Sample Heading', 'propreport' )
 				]
 			],
 			[
 				'core/paragraph',
 				[
-					'placeholder' => __( 'This is a sample paragraph included by the template() method in the class that registers this post type.', 'sitecore' )
+					'placeholder' => __( 'This is a sample paragraph included by the template() method in the class that registers this post type.', 'propreport' )
 				]
 			],
 		];

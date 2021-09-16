@@ -2,15 +2,15 @@
 /**
  * Add settings page class
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Admin
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Admin;
-use SiteCore\Classes\Settings as Settings;
+namespace PropReport\Classes\Admin;
+use PropReport\Classes\Settings as Settings;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -132,8 +132,8 @@ class Add_Settings_Page extends Add_Page {
 
 		$this->add_content_tab( [
 			'id'           => 'sample-one',
-			'tab'          => __( 'One', 'sitecore' ),
-			'heading'      => __( 'Settings One', 'sitecore' ),
+			'tab'          => __( 'One', 'propreport' ),
+			'heading'      => __( 'Settings One', 'propreport' ),
 			'settings'     => 'sample-settings',
 			'content'      => '',
 			'callback'     => [ $this, 'sample_tab' ]
@@ -141,8 +141,8 @@ class Add_Settings_Page extends Add_Page {
 
 		$this->add_content_tab( [
 			'id'           => 'sample-two',
-			'tab'          => __( 'Two', 'sitecore' ),
-			'heading'      => __( 'Settings Two', 'sitecore' ),
+			'tab'          => __( 'Two', 'propreport' ),
+			'heading'      => __( 'Settings Two', 'propreport' ),
 			'settings'     => '',
 			'content'      => '',
 			'callback'     => [ $this, 'sample_tab' ]
@@ -157,6 +157,6 @@ class Add_Settings_Page extends Add_Page {
 	 * @return mixed Returns the tab content.
 	 */
 	public function sample_tab() {
-		include SCP_PATH . 'views/backend/pages/sample-page-content.php';
+		include PRP_PATH . 'views/backend/pages/sample-page-content.php';
 	}
 }

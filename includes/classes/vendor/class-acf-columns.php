@@ -2,13 +2,13 @@
 /**
  * Admin columns for ACF fields
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Vendor
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Vendor;
+namespace PropReport\Classes\Vendor;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -123,7 +123,7 @@ class ACF_Columns {
 
 		// Only hook on ACF field editor page.
 		if ( $screen && $screen->id == 'acf-field-group' ) {
-			wp_enqueue_script( 'acf-admin-column', SCP_URL . 'assets/js/acf-columns' . $suffix . '.js', [ 'acf-field-group' ], null, true );
+			wp_enqueue_script( 'acf-admin-column', PRP_URL . 'assets/js/acf-columns' . $suffix . '.js', [ 'acf-field-group' ], null, true );
 		}
 	}
 

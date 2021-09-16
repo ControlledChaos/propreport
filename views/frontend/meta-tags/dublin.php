@@ -4,14 +4,14 @@
  *
  * @link http://dublincore.org/documents/dcmi-terms/
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Views
  * @category   Front
  * @since      1.0.0
  */
 
 // Alias namespaces.
-use SiteCore\Classes\Front\Meta as Meta;
+use PropReport\Classes\Front\Meta as Meta;
 
 ?>
 <!-- Dublin Core meta tags -->

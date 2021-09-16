@@ -2,14 +2,14 @@
 /**
  * Sample settings subpage class
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Admin
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Admin;
+namespace PropReport\Classes\Admin;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -69,7 +69,7 @@ class Add_Settings_Subpage extends Add_Subpage {
 	 *                dashes, and underscores characters to be
 	 *                compatible with sanitize_key().
 	 */
-	protected $menu_slug = SCP_BASENAME . '-sample-subpage';
+	protected $menu_slug = PRP_BASENAME . '-sample-subpage';
 
 	/**
 	 * Menu position
@@ -120,7 +120,7 @@ class Add_Settings_Subpage extends Add_Subpage {
 	 * @return string Returns the page heading.
 	 */
 	protected function heading() {
-		return __( 'Sample Submenu Page', 'sitecore' );
+		return __( 'Sample Submenu Page', 'propreport' );
 	}
 
 	/**
@@ -134,7 +134,7 @@ class Add_Settings_Subpage extends Add_Subpage {
 
 		ob_start();
 
-		include_once SCP_PATH . 'views/backend/pages/sample-page-content.php';
+		include_once PRP_PATH . 'views/backend/pages/sample-page-content.php';
 
 		$html = ob_get_clean();
 

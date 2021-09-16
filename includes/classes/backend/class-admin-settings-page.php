@@ -2,14 +2,14 @@
 /**
  * Admin settings page
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Admin
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Admin;
+namespace PropReport\Classes\Admin;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -108,7 +108,7 @@ class Admin_Settings_Page extends Add_Subpage {
 	 * @return string Returns the page heading.
 	 */
 	protected function heading() {
-		return __( 'Administration Settings', 'sitecore' );
+		return __( 'Administration Settings', 'propreport' );
 	}
 
 	/**
@@ -185,7 +185,7 @@ class Admin_Settings_Page extends Add_Subpage {
 	 * @return mixed Returns the tab content.
 	 */
 	public function menu_tab() {
-		include SCP_PATH . 'views/backend/forms/partials/settings-admin-menu.php';
+		include PRP_PATH . 'views/backend/forms/partials/settings-admin-menu.php';
 	}
 
 	/**
@@ -196,7 +196,7 @@ class Admin_Settings_Page extends Add_Subpage {
 	 * @return mixed Returns the tab content.
 	 */
 	public function dashboard_tab() {
-		include SCP_PATH . 'views/backend/forms/partials/settings-admin-dashboard.php';
+		include PRP_PATH . 'views/backend/forms/partials/settings-admin-dashboard.php';
 	}
 
 	/**
@@ -207,7 +207,7 @@ class Admin_Settings_Page extends Add_Subpage {
 	 * @return mixed Returns the tab content.
 	 */
 	public function toolbar_tab() {
-		include SCP_PATH . 'views/backend/forms/partials/settings-admin-toolbar.php';
+		include PRP_PATH . 'views/backend/forms/partials/settings-admin-toolbar.php';
 	}
 
 	/**
@@ -218,7 +218,7 @@ class Admin_Settings_Page extends Add_Subpage {
 	 * @return mixed Returns the tab content.
 	 */
 	public function header_tab() {
-		include SCP_PATH . 'views/backend/forms/partials/settings-admin-header.php';
+		include PRP_PATH . 'views/backend/forms/partials/settings-admin-header.php';
 	}
 
 	/**
@@ -229,7 +229,7 @@ class Admin_Settings_Page extends Add_Subpage {
 	 * @return mixed Returns the tab content.
 	 */
 	public function footer_tab() {
-		include SCP_PATH . 'views/backend/forms/partials/settings-admin-footer.php';
+		include PRP_PATH . 'views/backend/forms/partials/settings-admin-footer.php';
 	}
 
 	/**
@@ -240,6 +240,6 @@ class Admin_Settings_Page extends Add_Subpage {
 	 * @return mixed Returns the tab content.
 	 */
 	public function users_tab() {
-		include SCP_PATH . 'views/backend/forms/partials/settings-admin-users.php';
+		include PRP_PATH . 'views/backend/forms/partials/settings-admin-users.php';
 	}
 }

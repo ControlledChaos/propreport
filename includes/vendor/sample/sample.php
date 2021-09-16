@@ -2,19 +2,19 @@
 /**
  * Sample plugin
  *
- * Included for demonstration of bundling a plugin in the Site Core plugin.
+ * Included for demonstration of bundling a plugin in the Propaganda Report plugin.
  *
- * @package  Site_Core
+ * @package  Prop_Report
  * @category Core
  * @since    1.0.0
  *
  * Plugin Name:  Sample Plugin
- * Description:  Included for demonstration of bundling a plugin in the Site Core plugin.
+ * Description:  Included for demonstration of bundling a plugin in the Propaganda Report plugin.
  * Version:      0.0.1
  * Text Domain:  sample
  */
 
-function scp_sample_plugin_admin_notice() {
+function prp_sample_plugin_admin_notice() {
 
 	?>
 		<div id="sample-plugin-notice" class="notice notice-error">
@@ -25,4 +25,4 @@ function scp_sample_plugin_admin_notice() {
 		</div>
 	<?php
 }
-add_action( 'admin_notices', 'scp_sample_plugin_admin_notice' );
+add_action( 'admin_notices', 'prp_sample_plugin_admin_notice' );

@@ -2,14 +2,14 @@
 /**
  * Posts list tables
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Admin
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Admin;
-use SiteCore\Classes as Classes;
+namespace PropReport\Classes\Admin;
+use PropReport\Classes as Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -79,8 +79,8 @@ class Posts_List_Table extends Classes\Base {
 		// The HTML of the dropdown select box abave the table.
 		?>
 		<select name="page_template_filter" id="page_template_filter">
-			<option value="all"><?php _e( 'All Page Templates', 'sitecore' ); ?></option>
-			<option value="default" <?php echo ( $template == 'default' ) ? ' selected="selected" ' : ''; ?>><?php echo _e( 'Default Template', 'sitecore' ); ?></option>
+			<option value="all"><?php _e( 'All Page Templates', 'propreport' ); ?></option>
+			<option value="default" <?php echo ( $template == 'default' ) ? ' selected="selected" ' : ''; ?>><?php echo _e( 'Default Template', 'propreport' ); ?></option>
 			<?php page_template_dropdown( $template ); ?>
 		</select>
 		<?php
@@ -132,7 +132,7 @@ class Posts_List_Table extends Classes\Base {
 	public function template_columns_head( $columns ) {
 
 		// The column heading name to new `template` column.
-		$columns['template'] = __( 'Template', 'sitecore' );
+		$columns['template'] = __( 'Template', 'propreport' );
 
 		// Return the heading name.
 		return $columns;
@@ -162,8 +162,8 @@ class Posts_List_Table extends Classes\Base {
 
 					echo sprintf(
 						'<span title="%1s">%2s</span>',
-						__( 'Default Template', 'sitecore' ),
-						__( 'Default Template', 'sitecore' )
+						__( 'Default Template', 'propreport' ),
+						__( 'Default Template', 'propreport' )
 					);
 
 				// If it's not the default template.
@@ -176,7 +176,7 @@ class Posts_List_Table extends Classes\Base {
 	        		if ( isset( $templates[ $template ] ) ) {
 	        			echo sprintf(
 							'<span title="%1s %2s">%3s</span>',
-							__( 'Template file:', 'sitecore' ),
+							__( 'Template file:', 'propreport' ),
 							$template,
 							$templates[ $template ]
 						);
@@ -185,7 +185,7 @@ class Posts_List_Table extends Classes\Base {
 	        		} else {
 	        			echo sprintf(
 							'<span title="%1s">%2s</span>',
-							__( 'This template file does not exist', 'sitecore' ),
+							__( 'This template file does not exist', 'propreport' ),
 							$template
 						);
 					}
@@ -219,7 +219,7 @@ class Posts_List_Table extends Classes\Base {
 		$size  = 'column-thumbnail';
 
 		// Apply a filter for conditional modification.
-		$thumb = apply_filters( 'scp_column_thumbnail_size', $size );
+		$thumb = apply_filters( 'prp_column_thumbnail_size', $size );
 
 		// If there is an ID (if the post has a featured image).
 		if ( $post_thumbnail_id ) {
@@ -245,10 +245,10 @@ class Posts_List_Table extends Classes\Base {
 	public function image_column_head( $defaults ) {
 
 		// The column heading name.
-		$name    = __( 'Featured Image', 'sitecore' );
+		$name    = __( 'Featured Image', 'propreport' );
 
 		// Apply a filter for conditional modification.
-		$heading = apply_filters( 'scp_image_column_head', $name );
+		$heading = apply_filters( 'prp_image_column_head', $name );
 
 		// The column heading name to new `featured_image` column.
 		$defaults['featured_image'] = esc_html__( $heading );
@@ -286,11 +286,11 @@ class Posts_List_Table extends Classes\Base {
 
 			// If the post has a featured image.
 			if ( $post_featured_image ) {
-				echo '<img src="' . esc_url( $post_featured_image ) . '" alt="' . get_the_title( $post_ID ) . __( ' — featured image', 'sitecore' ) . '" width="48px" height="48px" />';
+				echo '<img src="' . esc_url( $post_featured_image ) . '" alt="' . get_the_title( $post_ID ) . __( ' — featured image', 'propreport' ) . '" width="48px" height="48px" />';
 
 			// If the post doen't have a featured image then use the fallback image.
 			} else {
-				echo '<img src="' . esc_url( SCP_URL . 'assets/images/featured-image-placeholder.png' ) . '" alt="' . __( 'No featured image available', 'sitecore' ) . '" width="48px" height="48px" />';
+				echo '<img src="' . esc_url( PRP_URL . 'assets/images/featured-image-placeholder.png' ) . '" alt="' . __( 'No featured image available', 'propreport' ) . '" width="48px" height="48px" />';
 			}
 		}
 	}

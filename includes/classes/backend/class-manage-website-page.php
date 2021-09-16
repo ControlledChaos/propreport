@@ -2,14 +2,14 @@
 /**
  * Add Manage Website page
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Admin
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Admin;
+namespace PropReport\Classes\Admin;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -118,6 +118,6 @@ class Manage_Website_Page extends Add_Subpage {
 	 * @return void
 	 */
 	public function callback() {
-		include_once SCP_PATH . 'views/backend/pages/manage-website.php';
+		include_once PRP_PATH . 'views/backend/pages/manage-website.php';
 	}
 }

@@ -6,13 +6,13 @@
  *
  * @see `includes/classes/README.md`;
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   General
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes;
+namespace PropReport\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -112,13 +112,13 @@ class Sample_Extends extends Sample {
  * Delete this function if not needed.
  *
  * @example Call a method from the namespaced class:
- *          `Classes\scp_sample_extends_class()->sample_method();`
+ *          `Classes\prp_sample_extends_class()->sample_method();`
  *
  * @since  1.0.0
  * @access public
  * @return object Returns an instance of the class.
  */
-function scp_sample_extends_class() {
+function prp_sample_extends_class() {
 	return Sample_Extends :: instance();
 }
 
@@ -127,4 +127,4 @@ function scp_sample_extends_class() {
  *
  * Uncomment to use.
  */
-// scp_sample_extends_class();
+// prp_sample_extends_class();

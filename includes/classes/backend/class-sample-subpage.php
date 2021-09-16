@@ -6,14 +6,14 @@
  * its new class name. Add to the autoloader
  * and intantiate where appropriate.
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Admin
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Admin;
+namespace PropReport\Classes\Admin;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -73,7 +73,7 @@ class Sample_Subpage extends Add_Subpage {
 	 *                dashes, and underscores characters to be
 	 *                compatible with sanitize_key().
 	 */
-	protected $menu_slug = SCP_BASENAME . '-sample-subpage';
+	protected $menu_slug = PRP_BASENAME . '-sample-subpage';
 
 	/**
 	 * Menu position
@@ -124,7 +124,7 @@ class Sample_Subpage extends Add_Subpage {
 	 * @return string Returns the page heading.
 	 */
 	protected function heading() {
-		return __( 'Sample Submenu Page', 'sitecore' );
+		return __( 'Sample Submenu Page', 'propreport' );
 	}
 
 	/**
@@ -140,16 +140,16 @@ class Sample_Subpage extends Add_Subpage {
 
 		$this->add_content_tab( [
 			'id'         => 'sample-one',
-			'tab'        => __( 'One', 'sitecore' ),
-			'heading'    => __( 'Settings One', 'sitecore' ),
+			'tab'        => __( 'One', 'propreport' ),
+			'heading'    => __( 'Settings One', 'propreport' ),
 			'content'    => '',
 			'callback'   => [ $this, 'sample_tab' ]
 		] );
 
 		$this->add_content_tab( [
 			'id'         => 'sample-two',
-			'tab'        => __( 'Two', 'sitecore' ),
-			'heading'    => __( 'Settings Two', 'sitecore' ),
+			'tab'        => __( 'Two', 'propreport' ),
+			'heading'    => __( 'Settings Two', 'propreport' ),
 			'content'    => '',
 			'callback'   => [ $this, 'sample_tab' ]
 		] );
@@ -163,6 +163,6 @@ class Sample_Subpage extends Add_Subpage {
 	 * @return mixed Returns the tab content.
 	 */
 	public function sample_tab() {
-		include SCP_PATH . 'views/backend/pages/sample-page-content.php';
+		include PRP_PATH . 'views/backend/pages/sample-page-content.php';
 	}
 }

@@ -4,7 +4,7 @@
  *
  * "Enhancement Suite which improves Advanced Custom Fields administration."
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Vendor
  * @category   Plugins
  * @version    0.8.8.5

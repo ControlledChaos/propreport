@@ -2,26 +2,26 @@
 /**
  * Initialize plugin functionality
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Init
  * @category   Core
  * @since      1.0.0
  */
 
-namespace SiteCore;
+namespace PropReport;
 
 // Alias namespaces.
 use
-SiteCore\Classes            as Classes,
-SiteCore\Classes\Core       as Core,
-SiteCore\Classes\Settings   as Settings,
-SiteCore\Classes\Tools      as Tools,
-SiteCore\Classes\Media      as Media,
-SiteCore\Classes\Users      as Users,
-SiteCore\Classes\Admin      as Admin,
-SiteCore\Classes\Front      as Front,
-SiteCore\Classes\Front\Meta as Meta,
-SiteCore\Classes\Vendor     as Vendor;
+PropReport\Classes            as Classes,
+PropReport\Classes\Core       as Core,
+PropReport\Classes\Settings   as Settings,
+PropReport\Classes\Tools      as Tools,
+PropReport\Classes\Media      as Media,
+PropReport\Classes\Users      as Users,
+PropReport\Classes\Admin      as Admin,
+PropReport\Classes\Front      as Front,
+PropReport\Classes\Front\Meta as Meta,
+PropReport\Classes\Vendor     as Vendor;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -43,15 +43,15 @@ function init() {
 
 	// Standard plugin installation.
 	load_plugin_textdomain(
-		'sitecore',
+		'propreport',
 		false,
-		dirname( SCP_BASENAME ) . '/languages'
+		dirname( PRP_BASENAME ) . '/languages'
 	);
 
 	// If this is in the must-use plugins directory.
 	load_muplugin_textdomain(
-		'sitecore',
-		dirname( SCP_BASENAME ) . '/languages'
+		'propreport',
+		dirname( PRP_BASENAME ) . '/languages'
 	);
 
 	/**
@@ -60,10 +60,10 @@ function init() {
 	 * The autoloader registers plugin classes for later use,
 	 * such as running new instances below.
 	 */
-	require_once SCP_PATH . 'includes/autoloader.php';
+	require_once PRP_PATH . 'includes/autoloader.php';
 
 	// Get compatibility functions.
-	require SCP_PATH . 'includes/vendor/compatibility.php';
+	require PRP_PATH . 'includes/vendor/compatibility.php';
 
 	// Instantiate settings classes.
 	new Settings\Settings;
@@ -77,7 +77,7 @@ function init() {
 	new Core\Register_Site_Help;
 
 	// If the Customizer is disabled in the system config file.
-	if ( ( defined( 'SCP_ALLOW_CUSTOMIZER' ) && false == SCP_ALLOW_CUSTOMIZER ) && ! current_user_can( 'develop' ) ) {
+	if ( ( defined( 'PRP_ALLOW_CUSTOMIZER' ) && false == PRP_ALLOW_CUSTOMIZER ) && ! current_user_can( 'develop' ) ) {
 		new Core\Remove_Customizer;
 	}
 
@@ -98,10 +98,10 @@ function init() {
 
 	// Run tools.
 	// @todo Put into a settings page.
-	$scp_tools = new Tools\Tools;
-	$scp_tools->rtl_test();
-	$scp_tools->customizer_reset();
-	$scp_tools->disable_floc();
+	$prp_tools = new Tools\Tools;
+	$prp_tools->rtl_test();
+	$prp_tools->customizer_reset();
+	$prp_tools->disable_floc();
 
 	// Instantiate media class.
 	new Media\Media;
@@ -110,12 +110,12 @@ function init() {
 	new Media\Register_Media_Type;
 
 	// Include Advanced Custom Fields.
-	$scp_acf = new Vendor\Plugin_ACF;
-	$scp_acf->include();
+	$prp_acf = new Vendor\Plugin_ACF;
+	$prp_acf->include();
 
 	// Include Advanced Custom Fields: Extended.
-	$scp_acfe = new Vendor\Plugin_ACFE;
-	$scp_acfe->include();
+	$prp_acfe = new Vendor\Plugin_ACFE;
+	$prp_acfe->include();
 
 	new Vendor\Sample_ACF_Options;
 	new Vendor\Sample_ACF_Suboptions;
@@ -137,12 +137,12 @@ function init() {
 	}
 
 	// Disable Site Health notifications.
-	if ( defined( 'SCP_ALLOW_SITE_HEALTH' ) && ! SCP_ALLOW_SITE_HEALTH ) {
+	if ( defined( 'PRP_ALLOW_SITE_HEALTH' ) && ! PRP_ALLOW_SITE_HEALTH ) {
 		add_filter( 'wp_fatal_error_handler_enabled', '__return_false' );
 	}
 
 	// Disable block widgets.
-	if ( defined( 'SCP_ALLOW_BLOCK_WIDGETS' ) && ! SCP_ALLOW_BLOCK_WIDGETS ) {
+	if ( defined( 'PRP_ALLOW_BLOCK_WIDGETS' ) && ! PRP_ALLOW_BLOCK_WIDGETS ) {
 		add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
 		add_filter( 'use_widgets_block_editor', '__return_false' );
 	}
@@ -152,7 +152,7 @@ function init() {
 	 *
 	 * @todo Put into an option.
 	 */
-	if ( defined( 'SCP_ALLOW_LINKS_MANAGER' ) && SCP_ALLOW_LINKS_MANAGER ) {
+	if ( defined( 'PRP_ALLOW_LINKS_MANAGER' ) && PRP_ALLOW_LINKS_MANAGER ) {
 		add_filter( 'pre_option_link_manager_enabled', '__return_true' );
 	}
 
@@ -177,7 +177,7 @@ function init() {
 
 	// System email from text.
 	add_filter( 'wp_mail_from_name', function( $name ) {
-		return apply_filters( 'scp_mail_from_name', get_bloginfo( 'name' ) );
+		return apply_filters( 'prp_mail_from_name', get_bloginfo( 'name' ) );
 	} );
 
 	// Disable WordPress administration email verification prompt.

@@ -2,15 +2,15 @@
 /**
  * Add page class
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Admin
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Admin;
-use SiteCore\Classes as Classes;
+namespace PropReport\Classes\Admin;
+use PropReport\Classes as Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -214,7 +214,7 @@ class Add_Page extends Classes\Base {
 	 * @return string Returns the conditional menu label.
 	 */
 	protected function page_title() {
-		return __( $this->page_title, 'sitecore' );
+		return __( $this->page_title, 'propreport' );
 	}
 
 	/**
@@ -225,7 +225,7 @@ class Add_Page extends Classes\Base {
 	 * @return string Returns the conditional menu label.
 	 */
 	protected function menu_title() {
-		return ucwords( __( $this->menu_title, 'sitecore' ) );
+		return ucwords( __( $this->menu_title, 'propreport' ) );
 	}
 
 	/**
@@ -250,7 +250,7 @@ class Add_Page extends Classes\Base {
 
 		$description = sprintf(
 			'<p class="description">%s</p>',
-			__( $this->description, 'sitecore' )
+			__( $this->description, 'propreport' )
 		);
 
 		if ( ! empty( $this->description ) ) {
@@ -570,7 +570,7 @@ class Add_Page extends Classes\Base {
 	 * Page content
 	 *
 	 * This can be used in the default `callback()` method.
-	 * Hooking into `scp_submanu_page_content` adds
+	 * Hooking into `prp_submanu_page_content` adds
 	 * content/markup inside the standard page markup.
 	 * Use a new `callback()` method to override these defaults.
 	 *
@@ -607,7 +607,7 @@ class Add_Page extends Classes\Base {
 		// Print a heading using the menu title variable.
 		echo  sprintf(
 			'<h1>%s</h1>',
-			__( $this->heading(), 'sitecore' )
+			__( $this->heading(), 'propreport' )
 		);
 
 		// Print a paragraph with native description class using the description variable.
@@ -636,7 +636,7 @@ class Add_Page extends Classes\Base {
 		// More information tab.
 		$screen->add_help_tab( [
 			'id'       => 'more_info',
-			'title'    => __( 'More Information', 'sitecore' ),
+			'title'    => __( 'More Information', 'propreport' ),
 			'content'  => null,
 			'callback' => [ $this, 'more_info' ]
 		] );
@@ -655,7 +655,7 @@ class Add_Page extends Classes\Base {
 	 * @return void
 	 */
 	public function more_info() {
-		include_once SCP_PATH . 'views/backend/help/sample-more-info.php';
+		include_once PRP_PATH . 'views/backend/help/sample-more-info.php';
 	}
 
 	/**
@@ -674,7 +674,7 @@ class Add_Page extends Classes\Base {
 
 		ob_start();
 
-		include_once SCP_PATH . 'views/backend/help/sample-sidebar.php';
+		include_once PRP_PATH . 'views/backend/help/sample-sidebar.php';
 
 		$html = ob_get_clean();
 
@@ -719,7 +719,7 @@ class Add_Page extends Classes\Base {
 		}
 
 		// Enqueue plugin tabs system.
-		wp_enqueue_script( SCP_CONFIG['admin_slug'] . '-tabs', SCP_URL . 'assets/js/admin-tabs' . $suffix . '.js', [ 'jquery' ], '', true );
+		wp_enqueue_script( PRP_CONFIG['admin_slug'] . '-tabs', PRP_URL . 'assets/js/admin-tabs' . $suffix . '.js', [ 'jquery' ], '', true );
 	}
 
 	/**
@@ -738,7 +738,7 @@ class Add_Page extends Classes\Base {
 
 		// Styles for the tabbed content.
 		$style  = '<style>';
-		$style .= file_get_contents( SCP_PATH . 'assets/css/admin-tabs.min.css' );
+		$style .= file_get_contents( PRP_PATH . 'assets/css/admin-tabs.min.css' );
 		$style .= '</style>';
 		echo $style;
 	}

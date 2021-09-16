@@ -2,7 +2,7 @@
 /**
  * Base class to register a post type
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Core
  * @since      1.0.0
@@ -24,7 +24,7 @@
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Core;
+namespace PropReport\Classes\Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -402,9 +402,9 @@ class Register_Type {
 	protected function options() {
 
 		$options = [
-			'label'                 => __( ucwords( $this->plural ), 'sitecore' ),
+			'label'                 => __( ucwords( $this->plural ), 'propreport' ),
 			'labels'                => $this->labels(),
-			'description'           => __( ucfirst( $this->description ), 'sitecore' ),
+			'description'           => __( ucfirst( $this->description ), 'propreport' ),
 			'public'                => $this->public,
 			'hierarchical'          => $this->hierarchical,
 			'exclude_from_search'   => $this->exclude_from_search,
@@ -451,32 +451,32 @@ class Register_Type {
 	protected function labels() {
 
 		$labels = [
-			'name'                  => __( ucwords( $this->plural ), 'sitecore' ),
-			'singular_name'         => __( ucwords( $this->singular ), 'sitecore' ),
-			'menu_name'             => __( ucwords( $this->plural ), 'sitecore' ),
-			'all_items'             => __( 'All ' . ucwords( $this->plural ), 'sitecore' ),
-			'add_new'               => __( 'Add New', 'sitecore' ),
-			'add_new_item'          => __( 'Add New ' . ucwords( $this->singular ), 'sitecore' ),
-			'edit_item'             => __( 'Edit ' . ucwords( $this->singular ), 'sitecore' ),
-			'new_item'              => __( 'New ' . ucwords( $this->singular ), 'sitecore' ),
-			'view_item'             => __( 'View ' . ucwords( $this->singular ), 'sitecore' ),
-			'view_items'            => __( 'View ' . ucwords( $this->plural ), 'sitecore' ),
-			'search_items'          => __( 'Search ' . ucwords( $this->plural ), 'sitecore' ),
-			'not_found'             => __( 'No ' . ucwords( $this->plural ) . ' Found', 'sitecore' ),
-			'not_found_in_trash'    => __( 'No ' . ucwords( $this->plural ) . ' Found in Trash', 'sitecore' ),
-			'parent_item_colon'     => __( 'Parent ' . ucwords( $this->singular ), 'sitecore' ),
-			'featured_image'        => __( 'Featured image for this ' . strtolower( $this->singular ), 'sitecore' ),
-			'set_featured_image'    => __( 'Set featured image for this ' . strtolower( $this->singular ), 'sitecore' ),
-			'remove_featured_image' => __( 'Remove featured image for this ' . strtolower( $this->singular ), 'sitecore' ),
-			'use_featured_image'    => __( 'Use as featured image for this ' . strtolower( $this->singular ), 'sitecore' ),
-			'archives'              => __( ucwords( $this->singular ) . ' archives', 'sitecore' ),
-			'insert_into_item'      => __( 'Insert into ' . ucwords( $this->singular ), 'sitecore' ),
-			'uploaded_to_this_item' => __( 'Uploaded to this ' . ucwords( $this->singular ), 'sitecore' ),
-			'filter_items_list'     => __( 'Filter ' . ucwords( $this->plural ), 'sitecore' ),
-			'items_list_navigation' => __( ucwords( $this->plural ) . ' list navigation', 'sitecore' ),
-			'items_list'            => __( ucwords( $this->plural ) . ' List', 'sitecore' ),
-			'attributes'            => __( ucwords( $this->singular ) . ' Attributes', 'sitecore' ),
-			'parent_item_colon'     => __( 'Parent ' . ucwords( $this->singular ), 'sitecore' ),
+			'name'                  => __( ucwords( $this->plural ), 'propreport' ),
+			'singular_name'         => __( ucwords( $this->singular ), 'propreport' ),
+			'menu_name'             => __( ucwords( $this->plural ), 'propreport' ),
+			'all_items'             => __( 'All ' . ucwords( $this->plural ), 'propreport' ),
+			'add_new'               => __( 'Add New', 'propreport' ),
+			'add_new_item'          => __( 'Add New ' . ucwords( $this->singular ), 'propreport' ),
+			'edit_item'             => __( 'Edit ' . ucwords( $this->singular ), 'propreport' ),
+			'new_item'              => __( 'New ' . ucwords( $this->singular ), 'propreport' ),
+			'view_item'             => __( 'View ' . ucwords( $this->singular ), 'propreport' ),
+			'view_items'            => __( 'View ' . ucwords( $this->plural ), 'propreport' ),
+			'search_items'          => __( 'Search ' . ucwords( $this->plural ), 'propreport' ),
+			'not_found'             => __( 'No ' . ucwords( $this->plural ) . ' Found', 'propreport' ),
+			'not_found_in_trash'    => __( 'No ' . ucwords( $this->plural ) . ' Found in Trash', 'propreport' ),
+			'parent_item_colon'     => __( 'Parent ' . ucwords( $this->singular ), 'propreport' ),
+			'featured_image'        => __( 'Featured image for this ' . strtolower( $this->singular ), 'propreport' ),
+			'set_featured_image'    => __( 'Set featured image for this ' . strtolower( $this->singular ), 'propreport' ),
+			'remove_featured_image' => __( 'Remove featured image for this ' . strtolower( $this->singular ), 'propreport' ),
+			'use_featured_image'    => __( 'Use as featured image for this ' . strtolower( $this->singular ), 'propreport' ),
+			'archives'              => __( ucwords( $this->singular ) . ' archives', 'propreport' ),
+			'insert_into_item'      => __( 'Insert into ' . ucwords( $this->singular ), 'propreport' ),
+			'uploaded_to_this_item' => __( 'Uploaded to this ' . ucwords( $this->singular ), 'propreport' ),
+			'filter_items_list'     => __( 'Filter ' . ucwords( $this->plural ), 'propreport' ),
+			'items_list_navigation' => __( ucwords( $this->plural ) . ' list navigation', 'propreport' ),
+			'items_list'            => __( ucwords( $this->plural ) . ' List', 'propreport' ),
+			'attributes'            => __( ucwords( $this->singular ) . ' Attributes', 'propreport' ),
+			'parent_item_colon'     => __( 'Parent ' . ucwords( $this->singular ), 'propreport' ),
 		];
 
 		// Filter for child classes to modify this array.

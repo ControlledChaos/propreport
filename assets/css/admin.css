@@ -337,15 +337,15 @@
 /**
  * Admin Header
  */
-.scp-admin-header .admin-site-branding {
+.prp-admin-header .admin-site-branding {
   padding-top: 1.5em;
 }
 
-.scp-admin-header .admin-site-branding .admin-site-title {
+.prp-admin-header .admin-site-branding .admin-site-title {
   margin-top: 0;
 }
 
-.scp-admin-header .admin-navigation .admin-navigation-list li {
+.prp-admin-header .admin-navigation .admin-navigation-list li {
   display: inline;
   margin-right: 0.75em;
 }
@@ -576,7 +576,7 @@ html .backend-tabbed-content .ui-button.ui-state-disabled:hover {
  * Some of the unordered lists in the admin pages
  * look better with bullets.
  */
-.scp-bullet-list {
+.prp-bullet-list {
   list-style: disc;
   margin-left: 1em;
 }

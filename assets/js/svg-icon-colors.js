@@ -6,28 +6,28 @@
  *
  * Forked from the WordPress SVG Painter used in the admin menu.
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Assets
  * @category   JavaScript
  * @since      1.0.0
  */
 
-window.scp = window.scp || {};
+window.prp = window.prp || {};
 
-scp.dashboard_svg_icons = ( function( $, window, document, undefined ) {
+prp.dashboard_svg_icons = ( function( $, window, document, undefined ) {
 	'use strict';
 	var selector, base64, painter,
 		colorscheme = {},
 		elements    = [];
 
 	$(document).ready( function() {
-		scp.dashboard_svg_icons.init();
+		prp.dashboard_svg_icons.init();
 	});
 
 	return {
 		init: function() {
 			painter  = this;
-			selector = $( '.scp-content-list .scp-cpt-icons, #dashboard_right_now .at-glance-cpt-icons' );
+			selector = $( '.prp-content-list .prp-cpt-icons, #dashboard_right_now .at-glance-cpt-icons' );
 
 			this.setColors();
 			this.findElements();

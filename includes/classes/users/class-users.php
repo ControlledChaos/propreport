@@ -2,14 +2,14 @@
 /**
  * Users class
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Users
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Users;
-use SiteCore\Classes as Classes;
+namespace PropReport\Classes\Users;
+use PropReport\Classes as Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -47,10 +47,10 @@ class Users extends Classes\Base {
 		/**
 		 * Remove user admin color picker
 		 *
-		 * If `SCP_ALLOW_ADMIN_COLOR_PICKER` is set to false.
+		 * If `PRP_ALLOW_ADMIN_COLOR_PICKER` is set to false.
 		 * This can be defined in the system config file.
 		 */
-		if ( defined( 'SCP_ALLOW_ADMIN_COLOR_PICKER' ) && false == SCP_ALLOW_ADMIN_COLOR_PICKER ) {
+		if ( defined( 'PRP_ALLOW_ADMIN_COLOR_PICKER' ) && false == PRP_ALLOW_ADMIN_COLOR_PICKER ) {
 			remove_action( 'admin_color_scheme_picker', 'admin_color_scheme_picker' );
 		}
 
@@ -140,7 +140,7 @@ class Users extends Classes\Base {
 		if ( 'profile.php' == $pagenow || 'user-edit.php' == $pagenow ) {
 			wp_enqueue_script(
 				'visual-editor-biography',
-				SCP_URL . 'assets/js/user-bio' . $suffix . '.js',
+				PRP_URL . 'assets/js/user-bio' . $suffix . '.js',
 				[ 'jquery' ],
 				false,
 				true
@@ -183,14 +183,14 @@ class Users extends Classes\Base {
 
 		// New Export Data submenu entry.
 		$submenu['users.php'][25] = [
-			__( 'Export Data', 'sitecore' ),
+			__( 'Export Data', 'propreport' ),
 			'export_others_personal_data',
 			'export-personal-data.php'
 		];
 
 		// New Erase Data submenu entry.
 		$submenu['users.php'][30] = [
-			__( 'Erase Data', 'sitecore' ),
+			__( 'Erase Data', 'propreport' ),
 			'erase_others_personal_data',
 			'erase-personal-data.php'
 		];
@@ -210,12 +210,12 @@ class Users extends Classes\Base {
 
 		ob_start();
 		?>
-		<h2><?php _e( 'User Details', 'sitecore' ); ?></h2>
+		<h2><?php _e( 'User Details', 'propreport' ); ?></h2>
 
 		<table class="form-table">
 			<tbody>
 				<tr>
-					<th><label for="description"><?php _e( 'Biographical Info', 'sitecore' ); ?></label></th>
+					<th><label for="description"><?php _e( 'Biographical Info', 'propreport' ); ?></label></th>
 					<td>
 						<?php
 						$description = get_user_meta( $user->ID, 'description', true );
@@ -237,7 +237,7 @@ class Users extends Classes\Base {
 							]
 						);
 						?>
-						<p class="description"><?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.', 'sitecore' ); ?></p>
+						<p class="description"><?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.', 'propreport' ); ?></p>
 					</td>
 				</tr>
 			</tbody>

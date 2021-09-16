@@ -4,13 +4,13 @@
  *
  * @todo Add to settings.
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Core
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Core;
+namespace PropReport\Classes\Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -60,7 +60,7 @@ class Remove_Customizer {
 	 * @return void
 	 */
 	public function direct_access() {
-		wp_die( __( 'The Customizer is currently disabled.', 'sitecore' ) );
+		wp_die( __( 'The Customizer is currently disabled.', 'propreport' ) );
 	}
 
 	/**

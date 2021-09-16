@@ -4,7 +4,7 @@
  *
  * "Customize WordPress with powerful, professional and intuitive fields."
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Vendor
  * @category   Plugins
  * @version    5.10.2

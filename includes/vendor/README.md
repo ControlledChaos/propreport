@@ -16,7 +16,7 @@ The following docblock replaces the plugin header in the main file.
  *
  * "Customize WordPress with powerful, professional and intuitive fields."
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Vendor
  * @category   Plugins
  * @version    x.x.x
@@ -46,7 +46,7 @@ The following docblock replaces the plugin header in the main file.
  *
  * "Enhancement Suite which improves Advanced Custom Fields administration."
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Vendor
  * @category   Plugins
  * @version    x.x.x

@@ -2,17 +2,17 @@
 /**
  * Register ACF options subpage
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Vendor
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Vendor;
+namespace PropReport\Classes\Vendor;
 
 // Alias namespaces.
-use SiteCore\Classes\Admin as Admin;
+use PropReport\Classes\Admin as Admin;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {

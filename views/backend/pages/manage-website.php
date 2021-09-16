@@ -2,13 +2,13 @@
 /**
  * Output of the Manage Website page
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Views
  * @category   Admin
  * @since      1.0.0
  */
 
-use SiteCore\Classes\Admin as Admin;
+use PropReport\Classes\Admin as Admin;
 
 // Instance of the Manage_Website_Page class.
 $page = new Admin\Manage_Website_Page;
@@ -19,12 +19,12 @@ $page = new Admin\Manage_Website_Page;
 	<?php
 	printf(
 		'<h1>%s</h1>',
-		__( $page->heading(), 'sitecore' )
+		__( $page->heading(), 'propreport' )
 	);
 
 	printf(
 		'<p class="description">%s</p>',
-		__( $page->description(), 'sitecore' )
+		__( $page->description(), 'propreport' )
 	);
 	?>
 

@@ -6,14 +6,14 @@
  * its new class name. Add to the autoloader
  * and intantiate where appropriate.
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Vendor
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Vendor;
+namespace PropReport\Classes\Vendor;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -81,6 +81,6 @@ class Sample_ACF_Options extends Add_ACF_Options {
 	 * @return void
 	 */
 	public function field_groups() {
-		include_once SCP_PATH . '/includes/fields/acf-sample-options.php';
+		include_once PRP_PATH . '/includes/fields/acf-sample-options.php';
 	}
 }

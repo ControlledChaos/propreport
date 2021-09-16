@@ -2,14 +2,14 @@
 /**
  * Base class to register a taxonomy
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Core
  * @since      1.0.0
  */
 
 declare( strict_types = 1 );
-namespace SiteCore\Classes\Core;
+namespace PropReport\Classes\Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -194,7 +194,7 @@ class Register_Tax {
 	public function options() {
 
 		$options = [
-			'label'                 => __( ucwords( $this->plural ), 'sitecore' ),
+			'label'                 => __( ucwords( $this->plural ), 'propreport' ),
 			'labels'                => $this->labels(),
 			'public'                => $this->public,
 			'hierarchical'          => $this->hierarchical,
@@ -227,28 +227,28 @@ class Register_Tax {
 	public function labels() {
 
 		$labels = [
-			'name'                       => __( ucwords( $this->plural ), 'sitecore' ),
-			'singular_name'              => __( ucwords( $this->singular ), 'sitecore' ),
-			'menu_name'                  => __( ucwords( $this->plural ), 'sitecore' ),
-			'all_items'                  => __( 'All ' . ucwords( $this->plural ), 'sitecore' ),
-			'edit_item'                  => __( 'Edit ' . ucwords( $this->singular ), 'sitecore' ),
-			'view_item'                  => __( 'View ' . ucwords( $this->singular ), 'sitecore' ),
-			'update_item'                => __( 'Update ' . ucwords( $this->singular ), 'sitecore' ),
-			'add_new_item'               => __( 'Add New ' . ucwords( $this->singular ), 'sitecore' ),
-			'new_item_name'              => __( 'New ' . ucwords( $this->singular ), 'sitecore' ),
-			'parent_item'                => __( 'Parent ' . ucwords( $this->singular ), 'sitecore' ),
-			'parent_item_colon'          => __( 'Parent ' . ucwords( $this->singular ), 'sitecore' ),
-			'popular_items'              => __( 'Popular ' . ucwords( $this->plural ), 'sitecore' ),
-			'separate_items_with_commas' => __( 'Separate ' . ucwords( $this->plural ) . ' with commas', 'sitecore' ),
-			'add_or_remove_items'        => __( 'Add or Remove ' . ucwords( $this->plural ), 'sitecore' ),
-			'choose_from_most_used'      => __( 'Choose from the most used ' . ucwords( $this->plural ), 'sitecore' ),
-			'not_found'                  => __( 'No ' . ucwords( $this->plural ) . ' Found', 'sitecore' ),
-			'no_terms'                   => __( 'No ' . ucwords( $this->plural ), 'sitecore' ),
-			'filter_by_item'             => __( 'Filter by Category', 'sitecore' ),
-			'items_list_navigation'      => __( ucwords( $this->plural ) . ' list navigation', 'sitecore' ),
-			'items_list'                 => __( ucwords( $this->plural ) . ' List', 'sitecore' ),
-			'most_used'                  => __( 'Most Used ' . ucwords( $this->plural ), 'sitecore' ),
-			'back_to_items'              => __( 'Back to ' . ucwords( $this->plural ), 'sitecore' )
+			'name'                       => __( ucwords( $this->plural ), 'propreport' ),
+			'singular_name'              => __( ucwords( $this->singular ), 'propreport' ),
+			'menu_name'                  => __( ucwords( $this->plural ), 'propreport' ),
+			'all_items'                  => __( 'All ' . ucwords( $this->plural ), 'propreport' ),
+			'edit_item'                  => __( 'Edit ' . ucwords( $this->singular ), 'propreport' ),
+			'view_item'                  => __( 'View ' . ucwords( $this->singular ), 'propreport' ),
+			'update_item'                => __( 'Update ' . ucwords( $this->singular ), 'propreport' ),
+			'add_new_item'               => __( 'Add New ' . ucwords( $this->singular ), 'propreport' ),
+			'new_item_name'              => __( 'New ' . ucwords( $this->singular ), 'propreport' ),
+			'parent_item'                => __( 'Parent ' . ucwords( $this->singular ), 'propreport' ),
+			'parent_item_colon'          => __( 'Parent ' . ucwords( $this->singular ), 'propreport' ),
+			'popular_items'              => __( 'Popular ' . ucwords( $this->plural ), 'propreport' ),
+			'separate_items_with_commas' => __( 'Separate ' . ucwords( $this->plural ) . ' with commas', 'propreport' ),
+			'add_or_remove_items'        => __( 'Add or Remove ' . ucwords( $this->plural ), 'propreport' ),
+			'choose_from_most_used'      => __( 'Choose from the most used ' . ucwords( $this->plural ), 'propreport' ),
+			'not_found'                  => __( 'No ' . ucwords( $this->plural ) . ' Found', 'propreport' ),
+			'no_terms'                   => __( 'No ' . ucwords( $this->plural ), 'propreport' ),
+			'filter_by_item'             => __( 'Filter by Category', 'propreport' ),
+			'items_list_navigation'      => __( ucwords( $this->plural ) . ' list navigation', 'propreport' ),
+			'items_list'                 => __( ucwords( $this->plural ) . ' List', 'propreport' ),
+			'most_used'                  => __( 'Most Used ' . ucwords( $this->plural ), 'propreport' ),
+			'back_to_items'              => __( 'Back to ' . ucwords( $this->plural ), 'propreport' )
 		];
 
 		// Filter for child classes to modify this array.

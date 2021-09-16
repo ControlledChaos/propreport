@@ -2,14 +2,14 @@
 /**
  * Post edit screens
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Admin
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Admin;
-use SiteCore\Classes as Classes;
+namespace PropReport\Classes\Admin;
+use PropReport\Classes as Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -67,13 +67,13 @@ class Post_Edit {
 
 		if ( $post_type_obj ) {
 			$name = $post_type_obj->labels->singular_name;
-			$post_title = esc_html__( $name . ' Title', 'sitecore' );
+			$post_title = esc_html__( $name . ' Title', 'propreport' );
 		} else {
-			$post_title = esc_html__( 'Title', 'sitecore' );
+			$post_title = esc_html__( 'Title', 'propreport' );
 		}
 
 		// Apply a filter conditional modification.
-		$title = apply_filters( 'scp_post_title_placeholders', $post_title );
+		$title = apply_filters( 'prp_post_title_placeholders', $post_title );
 
 		// Return the new placeholder.
 		return $title;
@@ -160,7 +160,7 @@ class Post_Edit {
 
 				$type = get_post_type_object( $post_type );
 
-				$wp_meta_boxes[ $type->name ]['normal']['core']['postexcerpt']['title'] = __( 'Content Summary', 'sitecore' );
+				$wp_meta_boxes[ $type->name ]['normal']['core']['postexcerpt']['title'] = __( 'Content Summary', 'propreport' );
 				$wp_meta_boxes[ $type->name ]['normal']['core']['postexcerpt']['callback'] = [ $this, 'excerpt_metabox_callback' ];
 			}
 		}
@@ -178,11 +178,11 @@ class Post_Edit {
 
 	?>
 	<p class="description">
-		<?php _e( 'Add a brief summary of this content to be used in archive pages, depending upon the active theme, and to be used in search engine metadata and for display in social media embeds.', 'sitecore' ); ?>
+		<?php _e( 'Add a brief summary of this content to be used in archive pages, depending upon the active theme, and to be used in search engine metadata and for display in social media embeds.', 'propreport' ); ?>
 	</p>
 
 	<label class="screen-reader-text" for="excerpt">
-		<?php _e( 'Summary Description', 'sitecore' ); ?>
+		<?php _e( 'Summary Description', 'propreport' ); ?>
 	</label>
 
 	<textarea rows="1" cols="40" name="excerpt" id="excerpt"><?php echo $post->post_excerpt; ?></textarea>
@@ -245,48 +245,48 @@ class Post_Edit {
 				0  => '', // Unused. Messages start at index 1.
 
 				1  => sprintf(
-					__( '%1s updated. <a href="%2s">View %3s</a>', 'sitecore' ), $post_object->labels->singular_name,
+					__( '%1s updated. <a href="%2s">View %3s</a>', 'propreport' ), $post_object->labels->singular_name,
 					esc_url( get_permalink( $post_ID ) ),
 					$post_object->labels->singular_name
 				),
-				2  => __( 'Custom field updated.', 'sitecore' ),
-				3  => __( 'Custom field deleted.', 'sitecore' ),
+				2  => __( 'Custom field updated.', 'propreport' ),
+				3  => __( 'Custom field deleted.', 'propreport' ),
 				4  => sprintf(
-					__( '1%s updated.', 'sitecore' ),
+					__( '1%s updated.', 'propreport' ),
 					$post_object->labels->singular_name
 				),
 				5  => isset( $_GET['revision']) ? sprintf(
-					__( '%1s restored to revision from %2s', 'sitecore' ),
+					__( '%1s restored to revision from %2s', 'propreport' ),
 					$post_object->labels->singular_name,
 					wp_post_revision_title( (int) $_GET['revision'], false )
 					) : false,
 				6  => sprintf(
-					__( '%1s published. <a href="%2s">View %3s</a>', 'sitecore' ),
+					__( '%1s published. <a href="%2s">View %3s</a>', 'propreport' ),
 					$post_object->labels->singular_name,
 					esc_url( get_permalink( $post_ID ) ),
 					$post_object->labels->singular_name
 				),
 				7  => sprintf(
-					__( '%1s saved.', 'sitecore' ),
+					__( '%1s saved.', 'propreport' ),
 					$post_object->labels->singular_name
 				),
 				8  => sprintf(
-					__( '%1s submitted. <a target="_blank" href="%2s">Preview %3s</a>', 'sitecore' ),
+					__( '%1s submitted. <a target="_blank" href="%2s">Preview %3s</a>', 'propreport' ),
 					$post_object->labels->singular_name,
 					esc_url( add_query_arg( 'preview', 'true',
 					get_permalink( $post_ID ) ) ),
 					$post_object->labels->singular_name
 				),
 				9  => sprintf(
-					__( '%1s scheduled for: <strong>%2s</strong>. <a target="_blank" href="%3s">Preview %4s</a>', 'sitecore'  ),
+					__( '%1s scheduled for: <strong>%2s</strong>. <a target="_blank" href="%3s">Preview %4s</a>', 'propreport'  ),
 					$post_object->labels->singular_name,
-					date_i18n( __( 'M j, Y @ G:i', 'sitecore' ),
+					date_i18n( __( 'M j, Y @ G:i', 'propreport' ),
 					strtotime( $post->post_date ) ),
 					esc_url( get_permalink( $post_ID ) ),
 					$post_object->labels->singular_name
 				),
 				10 => sprintf(
-					__( '%1s draft updated. <a target="_blank" href="%2s">Preview %3s</a>', 'sitecore'  ),
+					__( '%1s draft updated. <a target="_blank" href="%2s">Preview %3s</a>', 'propreport'  ),
 					$post_object->labels->singular_name,
 					esc_url( add_query_arg( 'preview', 'true',
 					get_permalink( $post_ID ) ) ),

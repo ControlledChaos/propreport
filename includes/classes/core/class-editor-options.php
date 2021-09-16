@@ -2,13 +2,13 @@
 /**
  * Sample/starter class
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Core
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Core;
+namespace PropReport\Classes\Core;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -439,8 +439,8 @@ class Editor_Options {
 			add_option_whitelist( $allowed_options );
 		}
 
-		$heading_default = __( 'Default editor for all users', 'sitecore' );
-		$heading_allow   = __( 'Allow users to switch editors', 'sitecore' );
+		$heading_default = __( 'Default editor for all users', 'propreport' );
+		$heading_allow   = __( 'Allow users to switch editors', 'propreport' );
 
 		add_settings_field( 'editor-options-default', $heading_default, [ __CLASS__, 'editor_settings_default' ], 'writing' );
 		add_settings_field( 'editor-options-choose', $heading_allow, [ __CLASS__, 'editor_settings_allow' ], 'writing' );
@@ -511,7 +511,7 @@ class Editor_Options {
 	 * @return void
 	 */
 	public static function editor_settings_default() {
-		include_once SCP_PATH . 'views/backend/forms/partials/settings-writing-editor-default.php';
+		include_once PRP_PATH . 'views/backend/forms/partials/settings-writing-editor-default.php';
 	}
 
 	/**
@@ -522,7 +522,7 @@ class Editor_Options {
 	 * @return void
 	 */
 	public static function editor_settings_allow() {
-		include_once SCP_PATH . 'views/backend/forms/partials/settings-writing-editor-allow.php';
+		include_once PRP_PATH . 'views/backend/forms/partials/settings-writing-editor-allow.php';
 	}
 
 	/**
@@ -549,7 +549,7 @@ class Editor_Options {
 			return;
 		}
 
-		include_once SCP_PATH . 'views/backend/forms/partials/settings-user-editor-default.php';
+		include_once PRP_PATH . 'views/backend/forms/partials/settings-user-editor-default.php';
 	}
 
 	/**
@@ -560,7 +560,7 @@ class Editor_Options {
 	 * @return void
 	 */
 	public static function network_settings() {
-		include_once SCP_PATH . 'views/backend/forms/partials/settings-network-editor-default.php';
+		include_once PRP_PATH . 'views/backend/forms/partials/settings-network-editor-default.php';
 	}
 
 	/**
@@ -782,7 +782,7 @@ class Editor_Options {
 		}
 
 		$id       = 'editor-options-switch-editor';
-		$title    = __( 'Editor', 'sitecore' );
+		$title    = __( 'Editor', 'propreport' );
 		$callback = [ __CLASS__, 'do_meta_box' ];
 		$args     = [
 			'__back_compat_meta_box' => true,
@@ -811,7 +811,7 @@ class Editor_Options {
 
 		?>
 		<p style="margin: 1em 0;">
-			<a href="<?php echo esc_url( $edit_url ); ?>"><?php _e( 'Switch to block editor ', 'sitecore' ); ?></a>
+			<a href="<?php echo esc_url( $edit_url ); ?>"><?php _e( 'Switch to block editor ', 'propreport' ); ?></a>
 		</p>
 		<?php
 	}
@@ -846,7 +846,7 @@ class Editor_Options {
 
 		wp_enqueue_script(
 			'editor-options',
-			SCP_URL . 'assets/js/editor-options' . $suffix . '.js',
+			PRP_URL . 'assets/js/editor-options' . $suffix . '.js',
 			[ 'wp-element', 'wp-components', 'lodash' ],
 			'1.4',
 			true
@@ -855,7 +855,7 @@ class Editor_Options {
 		wp_localize_script(
 			'editor-options',
 			'editorOptionsL10n',
-			[ 'linkText' => __( 'Switch to rich text editor ', 'sitecore' ) ]
+			[ 'linkText' => __( 'Switch to rich text editor ', 'propreport' ) ]
 		);
 	}
 
@@ -990,14 +990,14 @@ class Editor_Options {
 
 		// Link to the block editor.
 		$url        = remove_query_arg( 'editor-options', $edit_url );
-		$text       = _x( 'Edit Blocks', 'Editor Name', 'sitecore' );
-		$label      = sprintf( __( 'Edit &#8220;%s&#8221; in the block editor', 'sitecore' ), $title );
+		$text       = _x( 'Edit Blocks', 'Editor Name', 'propreport' );
+		$label      = sprintf( __( 'Edit &#8220;%s&#8221; in the block editor', 'propreport' ), $title );
 		$edit_block = sprintf( '<a href="%s" aria-label="%s">%s</a>', esc_url( $url ), esc_attr( $label ), $text );
 
 		// Link to the rich text editor.
 		$url          = add_query_arg( 'editor-options', '', $edit_url );
-		$text         = _x( 'Edit Rich Text', 'Editor Name', 'sitecore' );
-		$label        = sprintf( __( 'Edit &#8220;%s&#8221; in the rich text editor', 'sitecore' ), $title );
+		$text         = _x( 'Edit Rich Text', 'Editor Name', 'propreport' );
+		$label        = sprintf( __( 'Edit &#8220;%s&#8221; in the rich text editor', 'propreport' ), $title );
 		$edit_rich    = sprintf( '<a href="%s" aria-label="%s">%s</a>', esc_url( $url ), esc_attr( $label ), $text );
 		$edit_actions = [
 			'editor-options-tinymce' => $edit_rich,
@@ -1034,12 +1034,12 @@ class Editor_Options {
 		} elseif ( $editors['editor_options'] && ! $editors['block_editor'] ) {
 
 			// Forced to rich text editor.
-			$state = '<span class="editor-options-forced-state">' . _x( 'rich text editor', 'Editor Name', 'sitecore' ) . '</span>';
+			$state = '<span class="editor-options-forced-state">' . _x( 'rich text editor', 'Editor Name', 'propreport' ) . '</span>';
 
 		} elseif ( ! $editors['editor_options'] && $editors['block_editor'] ) {
 
 			// Forced to block editor.
-			$state = '<span class="editor-options-forced-state">' . _x( 'block editor', 'Editor Name', 'sitecore' ) . '</span>';
+			$state = '<span class="editor-options-forced-state">' . _x( 'block editor', 'Editor Name', 'propreport' ) . '</span>';
 
 		} else {
 
@@ -1054,7 +1054,7 @@ class Editor_Options {
 				$is_tinymce = ( $settings['editor'] === 'tinymce' );
 			}
 
-			$state = $is_tinymce ? _x( 'Rich Text', 'Editor Name', 'sitecore' ) : _x( 'Blocks', 'Editor Name', 'sitecore' );
+			$state = $is_tinymce ? _x( 'Rich Text', 'Editor Name', 'propreport' ) : _x( 'Blocks', 'Editor Name', 'propreport' );
 		}
 
 		// Fix PHP 7+ warnings if another plugin returns unexpected type.

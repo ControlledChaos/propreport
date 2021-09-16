@@ -2,13 +2,13 @@
 /**
  * Third-party code compatibility
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Vendor
  * @category   Functions
  * @since      1.0.0
  */
 
-namespace SiteCore\Compatibility;
+namespace PropReport\Compatibility;
 
 /**
  * Get pluggable path
@@ -128,7 +128,7 @@ function active_acfe_pro() {
 function has_acf() {
 
 	// Look for ACF files and set as a variable.
-	$acf = file_exists( SCP_PATH . 'includes/vendor/acf/acf.php' );
+	$acf = file_exists( PRP_PATH . 'includes/vendor/acf/acf.php' );
 
 	// Return true if the file is found.
 	if ( $acf && class_exists( 'acf' ) ) {
@@ -155,7 +155,7 @@ function has_acf() {
 function has_acf_pro() {
 
 	// Look for ACF PRO files and set as a variable.
-	$acf_pro = file_exists( SCP_PATH . 'includes/vendor/acf-pro/acf.php' );
+	$acf_pro = file_exists( PRP_PATH . 'includes/vendor/acf-pro/acf.php' );
 
 	// Return true if the file is found.
 	if ( $acf_pro && class_exists( 'acf_pro' ) ) {
@@ -179,7 +179,7 @@ function has_acf_pro() {
 function has_acfe() {
 
 	// Set core ACF file as a variable.
-	$acfe = file_exists( SCP_PATH . 'includes/vendor/acf-extended/acf-extended.php' );
+	$acfe = file_exists( PRP_PATH . 'includes/vendor/acf-extended/acf-extended.php' );
 
 	// Return true if the file is found.
 	if ( $acfe && class_exists( 'ACFE' ) ) {
@@ -206,7 +206,7 @@ function has_acfe() {
 function has_acfe_pro() {
 
 	// Set core ACF file as a variable.
-	$acfe_pro = file_exists( SCP_PATH . 'includes/vendor/acf-extended-pro/acf-extended.php' );
+	$acfe_pro = file_exists( PRP_PATH . 'includes/vendor/acf-extended-pro/acf-extended.php' );
 
 	// Return true if the file is found & included.
 	if ( $acfe_pro && class_exists( 'ACFE_Pro' ) ) {

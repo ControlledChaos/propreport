@@ -2,16 +2,16 @@
 /**
  * Admin class
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Admin
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Admin;
-use SiteCore\Classes as Classes,
-	SiteCore\Compatibility  as Compat,
-	SiteCore\Classes\Vendor as Vendor;
+namespace PropReport\Classes\Admin;
+use PropReport\Classes as Classes,
+	PropReport\Compatibility  as Compat,
+	PropReport\Classes\Vendor as Vendor;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -70,7 +70,7 @@ class Admin extends Classes\Base {
 		add_action( 'admin_head', [ $this, 'admin_only_updates' ], 1 );
 
 		// Remove Site Health from menu.
-		if ( defined( 'SCP_ALLOW_SITE_HEALTH' ) && ! SCP_ALLOW_SITE_HEALTH ) {
+		if ( defined( 'PRP_ALLOW_SITE_HEALTH' ) && ! PRP_ALLOW_SITE_HEALTH ) {
 			add_action( 'admin_menu', [ $this, 'menu_remove_site_health' ] );
 		}
 
@@ -134,7 +134,7 @@ class Admin extends Classes\Base {
 		 *
 		 * @since 1.0.0
 		 */
-		wp_enqueue_style( SCP_CONFIG['admin_slug'] . '-admin', SCP_URL . 'assets/css/admin.min.css', [], '', 'all' );
+		wp_enqueue_style( PRP_CONFIG['admin_slug'] . '-admin', PRP_URL . 'assets/css/admin.min.css', [], '', 'all' );
 	}
 
 	/**
@@ -283,8 +283,8 @@ class Admin extends Classes\Base {
 
 		// Add a new top-level Menus page.
 		add_menu_page(
-			__( 'Menus', 'sitecore' ),
-			__( 'Menus', 'sitecore' ),
+			__( 'Menus', 'propreport' ),
+			__( 'Menus', 'propreport' ),
 			'delete_others_pages',
 			'nav-menus.php',
 			'',
@@ -294,8 +294,8 @@ class Admin extends Classes\Base {
 
 		// Add a new top-level Widgets page.
 		add_menu_page(
-			__( 'Widgets', 'sitecore' ),
-			__( 'Widgets', 'sitecore' ),
+			__( 'Widgets', 'propreport' ),
+			__( 'Widgets', 'propreport' ),
 			'delete_others_pages',
 			'widgets.php',
 			'',
@@ -324,8 +324,8 @@ class Admin extends Classes\Base {
 			'%s %s <a href="%s" target="_blank" rel="nofollow">%s</a> %s',
 			get_bloginfo( 'name' ),
 			esc_html__( 'is managed by the' ),
-			esc_url( SCP_PLUGIN_URL ),
-			esc_html( SCP_NAME ),
+			esc_url( PRP_PLUGIN_URL ),
+			esc_html( PRP_NAME ),
 			esc_html__( 'plugin' )
 		);
 
@@ -346,18 +346,18 @@ class Admin extends Classes\Base {
 			'%s %s <a href="%s" target="_blank" rel="nofollow">%s</a>',
 			get_bloginfo( 'name' ),
 			esc_html__( 'website was designed & developed by' ),
-			esc_url( SCP_DEV_URL ),
-			esc_html( SCP_DEV_NAME )
+			esc_url( PRP_DEV_URL ),
+			esc_html( PRP_DEV_NAME )
 		);
 
 		// Developer email option.
 		$dev_email = sprintf(
 			'%s %s %s <a href="mailto:%s">%s</a>',
 			esc_html__( 'Contact' ),
-			esc_html( SCP_DEV_NAME ),
+			esc_html( PRP_DEV_NAME ),
 			esc_html__( 'for website assistance:' ),
-			esc_html( SCP_DEV_EMAIL ),
-			esc_html( SCP_DEV_EMAIL )
+			esc_html( PRP_DEV_EMAIL ),
+			esc_html( PRP_DEV_EMAIL )
 		);
 
 		echo $name;
@@ -381,8 +381,8 @@ class Admin extends Classes\Base {
 			'%s %s <a href="%s" target="_blank" rel="nofollow">%s</a> %s',
 			get_bloginfo( 'name' ),
 			esc_html__( 'is managed by the' ),
-			esc_url( SCP_PLUGIN_URL ),
-			esc_html( SCP_NAME ),
+			esc_url( PRP_PLUGIN_URL ),
+			esc_html( PRP_NAME ),
 			esc_html__( 'plugin' )
 		);
 
@@ -403,18 +403,18 @@ class Admin extends Classes\Base {
 			'%s %s <a href="%s" target="_blank" rel="nofollow">%s</a>',
 			get_bloginfo( 'name' ),
 			esc_html__( 'website was designed & developed by' ),
-			esc_url( SCP_DEV_URL ),
-			esc_html( SCP_DEV_NAME )
+			esc_url( PRP_DEV_URL ),
+			esc_html( PRP_DEV_NAME )
 		);
 
 		// Developer email option.
 		$dev_email = sprintf(
 			'%s %s %s <a href="mailto:%s">%s</a>',
 			esc_html__( 'Contact' ),
-			esc_html( SCP_DEV_NAME ),
+			esc_html( PRP_DEV_NAME ),
 			esc_html__( 'for website assistance:' ),
-			esc_html( SCP_DEV_EMAIL ),
-			esc_html( SCP_DEV_EMAIL )
+			esc_html( PRP_DEV_EMAIL ),
+			esc_html( PRP_DEV_EMAIL )
 		);
 
 		echo $dev_email;

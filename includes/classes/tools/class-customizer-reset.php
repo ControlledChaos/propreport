@@ -4,13 +4,13 @@
  *
  * Resets customizations to the active theme.
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Tools
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Tools;
+namespace PropReport\Classes\Tools;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -64,12 +64,12 @@ final class Customizer_Reset {
 		}
 
 		// Enqueue the script for button and AJAX.
-		wp_enqueue_script( 'scp-customizer-reset', SCP_URL . 'assets/js/customizer-reset' . $suffix . '.js', [ 'jquery' ], '20150120' );
+		wp_enqueue_script( 'prp-customizer-reset', PRP_URL . 'assets/js/customizer-reset' . $suffix . '.js', [ 'jquery' ], '20150120' );
 
 		// Localize the above script.
-		wp_localize_script( 'scp-customizer-reset', 'SCP_CustomizerReset', [
-			'reset'   => __( 'Reset', 'sitecore' ),
-			'confirm' => __( 'Warning! This will remove all changes made to this theme via the Customizer. This action is irreversible.', 'sitecore' ),
+		wp_localize_script( 'prp-customizer-reset', 'PRP_CustomizerReset', [
+			'reset'   => __( 'Reset', 'propreport' ),
+			'confirm' => __( 'Warning! This will remove all changes made to this theme via the Customizer. This action is irreversible.', 'propreport' ),
 			'nonce'   => [
 				'reset' => wp_create_nonce( 'customizer-reset' ),
 			]

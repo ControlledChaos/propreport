@@ -2,7 +2,7 @@
 /**
  * Output of the sample help sidebar
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Views
  * @category   Admin
  * @since      1.0.0
@@ -14,6 +14,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 ?>
-<h4><?php _e( 'Help Sidebar', 'sitecore' ); ?></h4>
+<h4><?php _e( 'Help Sidebar', 'propreport' ); ?></h4>
 
-<p><?php _e( 'Demonstration help sidebar.', 'sitecore' ); ?></p>
+<p><?php _e( 'Demonstration help sidebar.', 'propreport' ); ?></p>

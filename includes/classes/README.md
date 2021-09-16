@@ -8,9 +8,9 @@ Class files are organized into subdirectories of the `includes/classes/` directo
 
 When directories are added or renamed the `includes/autoloader.php` file must be edited accordingly.
 
-The `SCP_CLASS` constant in the autoloader defines an array of directory names and their relative paths. Add, edit, or remove these definitions to reflect your directory structure. The class path constant is implement by referencing the keyword of the directory.
+The `PRP_CLASS` constant in the autoloader defines an array of directory names and their relative paths. Add, edit, or remove these definitions to reflect your directory structure. The class path constant is implement by referencing the keyword of the directory.
 
-Example: `SCP_CLASS['core']` is used to register class files in the `includes/classes/core/` directory if defined as such by the `SCP_CLASS` constant.
+Example: `PRP_CLASS['core']` is used to register class files in the `includes/classes/core/` directory if defined as such by the `PRP_CLASS` constant.
 
 ## Class Namespaces
 

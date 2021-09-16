@@ -2,13 +2,13 @@
 /**
  * Frontend meta data
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Front
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Front\Meta;
+namespace PropReport\Classes\Front\Meta;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -78,14 +78,14 @@ class Meta_Data {
 		// Custom author title.
 		$author = sprintf(
 			'%1s %2s',
-			__( 'Posts by', 'sitecore' ),
+			__( 'Posts by', 'propreport' ),
 			get_the_author_meta( 'display_name', $author_id )
 		);
 
 		// Custom search title.
 		$search = sprintf(
 			'%1s %2s',
-			__( 'Searching', 'sitecore' ),
+			__( 'Searching', 'propreport' ),
 			get_bloginfo( 'name' )
 		);
 
@@ -117,7 +117,7 @@ class Meta_Data {
 			$title = '';
 		}
 
-		return apply_filters( 'scp_meta_data_title', $title );
+		return apply_filters( 'prp_meta_data_title', $title );
 	}
 
 	/**
@@ -134,7 +134,7 @@ class Meta_Data {
 		$search = wp_strip_all_tags(
 			sprintf(
 				'%s %s',
-				__( 'Showing results for', 'sitecore' ),
+				__( 'Showing results for', 'propreport' ),
 				get_search_query()
 			)
 		);
@@ -158,13 +158,13 @@ class Meta_Data {
 			$description = $auto_excerpt;
 
 		} elseif ( is_404() ) {
-			$description = __( '404 Error: Not Found', 'sitecore' );
+			$description = __( '404 Error: Not Found', 'propreport' );
 
 		} else {
 			$description = '';
 		}
 
-		return apply_filters( 'scp_meta_data_description', $description );
+		return apply_filters( 'prp_meta_data_description', $description );
 	}
 
 	/**
@@ -293,7 +293,7 @@ class Meta_Data {
 		}
 
 		// Return the appropriate URL in the content of the tag.
-		return apply_filters( 'scp_meta_data_url', $url );
+		return apply_filters( 'prp_meta_data_url', $url );
 	}
 
 	/**
@@ -346,7 +346,7 @@ class Meta_Data {
 		}
 
 		$date = get_the_date( 'Y-m-d' );
-		return apply_filters( 'scp_meta_data_published', $date );
+		return apply_filters( 'prp_meta_data_published', $date );
 
 	}
 
@@ -365,7 +365,7 @@ class Meta_Data {
 		}
 
 		$date = get_post_modified_time( 'Y-m-d' );
-		return apply_filters( 'scp_meta_data_modified', $date );
+		return apply_filters( 'prp_meta_data_modified', $date );
 	}
 
 	/**
@@ -387,7 +387,7 @@ class Meta_Data {
 		} else {
 			$src = '';
 		}
-		return apply_filters( 'scp_meta_data_image', $src );
+		return apply_filters( 'prp_meta_data_image', $src );
 	}
 
 	/**
@@ -401,12 +401,12 @@ class Meta_Data {
 
 		$copy = sprintf(
 			'&copy; %s %s %s %s',
-			__( 'Copyright', 'sitecore' ),
+			__( 'Copyright', 'propreport' ),
 			get_the_time( 'Y' ),
 			get_bloginfo( 'name' ),
-			__( '. All rights reserved.', 'sitecore' )
+			__( '. All rights reserved.', 'propreport' )
 		);
-		return apply_filters( 'scp_meta_data_copyright', $copy );
+		return apply_filters( 'prp_meta_data_copyright', $copy );
 	}
 }
 

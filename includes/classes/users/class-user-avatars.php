@@ -9,14 +9,14 @@
  *
  * @todo Better upload & remove interface on profile edit screens.
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Users
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Users;
-use SiteCore\Classes as Classes;
+namespace PropReport\Classes\Users;
+use PropReport\Classes as Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -185,17 +185,17 @@ class User_Avatars extends Classes\Base {
 	public function capability() {
 
 		add_settings_field(
-			'scp_user_avatars_caps',
-			__( 'Avatar Upload Permission',	'sitecore' ),
+			'prp_user_avatars_caps',
+			__( 'Avatar Upload Permission',	'propreport' ),
 			[ $this, 'capability_field' ],
 			'discussion',
 			'avatars',
-			[ esc_html__( 'Only allow users with file upload capabilities to upload local avatars (Authors and above).', 'sitecore' ) ]
+			[ esc_html__( 'Only allow users with file upload capabilities to upload local avatars (Authors and above).', 'propreport' ) ]
 		);
 
 		register_setting(
 			'discussion',
-			'scp_user_avatars_caps'
+			'prp_user_avatars_caps'
 		);
 	}
 
@@ -208,11 +208,11 @@ class User_Avatars extends Classes\Base {
 	 */
 	public function capability_field( $args ) {
 
-		$option = get_option( 'scp_user_avatars_caps' );
+		$option = get_option( 'prp_user_avatars_caps' );
 
-		$html = '<p><input type="checkbox" id="scp_user_avatars_caps" name="scp_user_avatars_caps" value="1" ' . checked( 1, $option, false ) . '/>';
+		$html = '<p><input type="checkbox" id="prp_user_avatars_caps" name="prp_user_avatars_caps" value="1" ' . checked( 1, $option, false ) . '/>';
 
-		$html .= '<label for="scp_user_avatars_caps"> ' . $args[0] . '</label></p>';
+		$html .= '<label for="prp_user_avatars_caps"> ' . $args[0] . '</label></p>';
 
 		echo $html;
 	}
@@ -248,7 +248,7 @@ class User_Avatars extends Classes\Base {
 			return $avatar;
 		}
 
-		$local_avatars = get_user_meta( $user_id, 'scp_user_avatar', true );
+		$local_avatars = get_user_meta( $user_id, 'prp_user_avatar', true );
 
 		if ( empty( $local_avatars ) || empty( $local_avatars['full'] ) ) {
 			return $avatar;
@@ -279,7 +279,7 @@ class User_Avatars extends Classes\Base {
 			}
 
 			// Save updated avatar sizes
-			update_user_meta( $user_id, 'scp_user_avatar', $local_avatars );
+			update_user_meta( $user_id, 'prp_user_avatar', $local_avatars );
 
 		} elseif ( substr( $local_avatars[$size], 0, 4 ) != 'http' ) {
 			$local_avatars[$size] = home_url( $local_avatars[$size] );
@@ -288,7 +288,7 @@ class User_Avatars extends Classes\Base {
 		$author_class = is_author( $user_id ) ? ' current-author' : '' ;
 		$avatar       = "<img alt='" . esc_attr( $alt ) . "' src='" . $local_avatars[$size] . "' class='avatar avatar-{$size}{$author_class} photo' height='{$size}' width='{$size}' />";
 
-		return apply_filters( 'scp_user_avatar', $avatar );
+		return apply_filters( 'prp_user_avatar', $avatar );
 	}
 
 	/**
@@ -312,42 +312,42 @@ class User_Avatars extends Classes\Base {
 		}
 
 		?>
-		<h2><?php _e( 'User Avatar', 'sitecore' ); ?></h2>
+		<h2><?php _e( 'User Avatar', 'propreport' ); ?></h2>
 
 		<table class="form-table">
 			<tbody>
 				<tr>
-					<th><label for="basic-user-avatar"><?php _e( 'Upload or Delete', 'sitecore' ); ?></label></th>
+					<th><label for="basic-user-avatar"><?php _e( 'Upload or Delete', 'propreport' ); ?></label></th>
 					<td style="width: 50px;" valign="top">
 						<?php echo get_avatar( $profileuser->ID ); ?>
 					</td>
 					<td>
 					<?php
-					$options = get_option( 'scp_user_avatars_caps' );
+					$options = get_option( 'prp_user_avatars_caps' );
 
 					if ( empty( $options ) || current_user_can( 'upload_files' ) ) {
 
 						// Nonce security.
-						wp_nonce_field( 'scp_user_avatar_nonce', '_scp_user_avatar_nonce', false );
+						wp_nonce_field( 'prp_user_avatar_nonce', '_prp_user_avatar_nonce', false );
 
 						// File upload input.
 						echo '<input type="file" name="basic-user-avatar" id="basic-local-avatar" /><br />';
 
-						if ( empty( $profileuser->scp_user_avatar ) ) {
-							echo '<span class="description">' . __( 'No local avatar is set. Use the upload field to add a local avatar.', 'sitecore' ) . '</span>';
+						if ( empty( $profileuser->prp_user_avatar ) ) {
+							echo '<span class="description">' . __( 'No local avatar is set. Use the upload field to add a local avatar.', 'propreport' ) . '</span>';
 
 						} else {
-							echo '<input type="checkbox" name="basic-user-avatar-erase" value="1" /> ' . __( 'Delete local avatar', 'sitecore' ) . '<br />';
-							echo '<span class="description">' . __( 'Replace the local avatar by uploading a new avatar or erase the current avatar by checking the delete option.', 'sitecore' ) . '</span>';
+							echo '<input type="checkbox" name="basic-user-avatar-erase" value="1" /> ' . __( 'Delete local avatar', 'propreport' ) . '<br />';
+							echo '<span class="description">' . __( 'Replace the local avatar by uploading a new avatar or erase the current avatar by checking the delete option.', 'propreport' ) . '</span>';
 						}
 
 					} else {
 
-						if ( empty( $profileuser->scp_user_avatar ) ) {
-							echo '<span class="description">' . __( 'You do not have permission to upload an avatar.', 'sitecore' ) . '</span>';
+						if ( empty( $profileuser->prp_user_avatar ) ) {
+							echo '<span class="description">' . __( 'You do not have permission to upload an avatar.', 'propreport' ) . '</span>';
 
 						} else {
-							echo '<span class="description">' . __( 'You do not have media management permissions. To change your local avatar, contact the site administrator.', 'sitecore' ) . '</span>';
+							echo '<span class="description">' . __( 'You do not have media management permissions. To change your local avatar, contact the site administrator.', 'propreport' ) . '</span>';
 						}
 					}
 					?>
@@ -376,7 +376,7 @@ class User_Avatars extends Classes\Base {
 	public function edit_user_profile_update( $user_id ) {
 
 		// Check for nonce otherwise bail.
-		if ( ! isset( $_POST['_scp_user_avatar_nonce'] ) || ! wp_verify_nonce( $_POST['_scp_user_avatar_nonce'], 'scp_user_avatar_nonce' ) ) {
+		if ( ! isset( $_POST['_prp_user_avatar_nonce'] ) || ! wp_verify_nonce( $_POST['_prp_user_avatar_nonce'], 'prp_user_avatar_nonce' ) ) {
 			return;
 		}
 
@@ -422,7 +422,7 @@ class User_Avatars extends Classes\Base {
 			}
 
 			// Save user information, overwriting previous.
-			update_user_meta( $user_id, 'scp_user_avatar', [ 'full' => $avatar['url'] ] );
+			update_user_meta( $user_id, 'prp_user_avatar', [ 'full' => $avatar['url'] ] );
 
 		} elseif ( ! empty( $_POST['basic-user-avatar-erase'] ) ) {
 			$this->avatar_delete( $user_id );
@@ -448,35 +448,35 @@ class User_Avatars extends Classes\Base {
 		$profileuser = get_userdata( $user_id );
 
 		echo '<div>';
-		echo '<label for="basic-local-avatar">' . __( 'Avatar', 'sitecore' ) . '</label>';
+		echo '<label for="basic-local-avatar">' . __( 'Avatar', 'propreport' ) . '</label>';
 		echo '<fieldset class="bbp-form avatar">';
 
 	 			echo get_avatar( $profileuser->ID );
-				$options = get_option( 'scp_user_avatars_caps' );
+				$options = get_option( 'prp_user_avatars_caps' );
 
 				if ( empty( $options ) || current_user_can( 'upload_files' ) ) {
 
 					// Nonce security.
-					wp_nonce_field( 'scp_user_avatar_nonce', '_scp_user_avatar_nonce', false );
+					wp_nonce_field( 'prp_user_avatar_nonce', '_prp_user_avatar_nonce', false );
 
 					// File upload input.
 					echo '<br /><input type="file" name="basic-user-avatar" id="basic-local-avatar" /><br />';
 
-					if ( empty( $profileuser->scp_user_avatar ) ) {
-						echo '<span class="description" style="margin-left:0;">' . __( 'No local avatar is set. Use the upload field to add a local avatar.', 'sitecore' ) . '</span>';
+					if ( empty( $profileuser->prp_user_avatar ) ) {
+						echo '<span class="description" style="margin-left:0;">' . __( 'No local avatar is set. Use the upload field to add a local avatar.', 'propreport' ) . '</span>';
 
 					} else {
-						echo '<input type="checkbox" name="basic-user-avatar-erase" value="1" style="width:auto" /> ' . __( 'Delete local avatar', 'sitecore' ) . '<br />';
-						echo '<span class="description" style="margin-left:0;">' . __( 'Replace the local avatar by uploading a new avatar, or erase the local avatar (falling back to a gravatar) by checking the delete option.', 'sitecore' ) . '</span>';
+						echo '<input type="checkbox" name="basic-user-avatar-erase" value="1" style="width:auto" /> ' . __( 'Delete local avatar', 'propreport' ) . '<br />';
+						echo '<span class="description" style="margin-left:0;">' . __( 'Replace the local avatar by uploading a new avatar, or erase the local avatar (falling back to a gravatar) by checking the delete option.', 'propreport' ) . '</span>';
 					}
 
 				} else {
 
-					if ( empty( $profileuser->scp_user_avatar ) ) {
-						echo '<span class="description" style="margin-left:0;">' . __( 'You do not have permission to upload an avatar.', 'sitecore' ) . '</span>';
+					if ( empty( $profileuser->prp_user_avatar ) ) {
+						echo '<span class="description" style="margin-left:0;">' . __( 'You do not have permission to upload an avatar.', 'propreport' ) . '</span>';
 
 					} else {
-						echo '<span class="description" style="margin-left:0;">' . __( 'You do not have media management permissions. To change your local avatar, contact the site administrator.', 'sitecore' ) . '</span>';
+						echo '<span class="description" style="margin-left:0;">' . __( 'You do not have media management permissions. To change your local avatar, contact the site administrator.', 'propreport' ) . '</span>';
 					}
 				}
 
@@ -558,8 +558,8 @@ class User_Avatars extends Classes\Base {
 		];
 
 		// Local avatars for option update.
-		$mystery = esc_url( SCP_URL . 'assets/images/mystery.png' );
-		$blank   = esc_url( SCP_URL . 'assets/images/blank.png' );
+		$mystery = esc_url( PRP_URL . 'assets/images/mystery.png' );
+		$blank   = esc_url( PRP_URL . 'assets/images/blank.png' );
 
 		/**
 		 * If this is a fresh site, if no default is set, or if mystery Gravatar
@@ -596,19 +596,19 @@ class User_Avatars extends Classes\Base {
 
 		// Local avatar options.
 		$defaults = [
-			'mystery' => esc_url( SCP_URL . 'assets/images/mystery.png' ),
-			'generic' => esc_url( SCP_URL . 'assets/images/generic.png' ),
-			'yellow'  => esc_url( SCP_URL . 'assets/images/yellow.png' ),
-			'pink'    => esc_url( SCP_URL . 'assets/images/pink.png' ),
-			'blue'    => esc_url( SCP_URL . 'assets/images/blue.png' ),
-			'violet'  => esc_url( SCP_URL . 'assets/images/violet.png' ),
-			'green'   => esc_url( SCP_URL . 'assets/images/green.png' ),
-			'orange'  => esc_url( SCP_URL . 'assets/images/orange.png' ),
-			'blank'   => esc_url( SCP_URL . 'assets/images/blank.png' )
+			'mystery' => esc_url( PRP_URL . 'assets/images/mystery.png' ),
+			'generic' => esc_url( PRP_URL . 'assets/images/generic.png' ),
+			'yellow'  => esc_url( PRP_URL . 'assets/images/yellow.png' ),
+			'pink'    => esc_url( PRP_URL . 'assets/images/pink.png' ),
+			'blue'    => esc_url( PRP_URL . 'assets/images/blue.png' ),
+			'violet'  => esc_url( PRP_URL . 'assets/images/violet.png' ),
+			'green'   => esc_url( PRP_URL . 'assets/images/green.png' ),
+			'orange'  => esc_url( PRP_URL . 'assets/images/orange.png' ),
+			'blank'   => esc_url( PRP_URL . 'assets/images/blank.png' )
 		];
 
 		// Return avatar types.
-		return apply_filters( 'scp_get_avatar_defaults', $defaults );
+		return apply_filters( 'prp_get_avatar_defaults', $defaults );
 	}
 
 	/**
@@ -633,13 +633,13 @@ class User_Avatars extends Classes\Base {
 
 		// Array of new avatar options.
 		$options = [
-			$defaults['mystery'] => __( 'Mystery', 'sitecore' ),
-			$defaults['generic'] => __( 'Generic', 'sitecore' ),
-			$defaults['blank']   => __( 'Blank', 'sitecore' )
+			$defaults['mystery'] => __( 'Mystery', 'propreport' ),
+			$defaults['generic'] => __( 'Generic', 'propreport' ),
+			$defaults['blank']   => __( 'Blank', 'propreport' )
 		];
 
 		// Return new avatar options.
-		return apply_filters( 'scp_avatar_defaults', $options );
+		return apply_filters( 'prp_avatar_defaults', $options );
 	}
 
 	/**
@@ -651,7 +651,7 @@ class User_Avatars extends Classes\Base {
 	 */
 	public function avatar_delete( $user_id ) {
 
-		$old_avatars = get_user_meta( $user_id, 'scp_user_avatar', true );
+		$old_avatars = get_user_meta( $user_id, 'prp_user_avatar', true );
 		$upload_path = wp_upload_dir();
 
 		if ( is_array( $old_avatars ) ) {
@@ -661,7 +661,7 @@ class User_Avatars extends Classes\Base {
 			}
 		}
 
-		delete_user_meta( $user_id, 'scp_user_avatar' );
+		delete_user_meta( $user_id, 'prp_user_avatar' );
 	}
 
 	/**

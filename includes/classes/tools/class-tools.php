@@ -2,14 +2,14 @@
 /**
  * Tools class
  *
- * @package    Site_Core
+ * @package    Prop_Report
  * @subpackage Classes
  * @category   Tools
  * @since      1.0.0
  */
 
-namespace SiteCore\Classes\Tools;
-use SiteCore\Classes as Classes;
+namespace PropReport\Classes\Tools;
+use PropReport\Classes as Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
