@@ -288,7 +288,7 @@ class Admin extends Classes\Base {
 			'delete_others_pages',
 			'nav-menus.php',
 			'',
-			'dashicons-menu-alt',
+			'dashicons-menu',
 			61
 		);
 
