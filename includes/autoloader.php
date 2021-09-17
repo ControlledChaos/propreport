@@ -101,6 +101,7 @@ define( 'PRP_CLASSES', [
 	PRP_CLASS_NS . '\Vendor\Plugin_ACF'    => PRP_CLASS['vendor'] . 'plugin-acf.php',
 	PRP_CLASS_NS . '\Vendor\Plugin_ACFE'   => PRP_CLASS['vendor'] . 'plugin-acfe.php',
 	PRP_CLASS_NS . '\Vendor\ACF_Columns'   => PRP_CLASS['vendor'] . 'acf-columns.php',
+	PRP_CLASS_NS . '\Vendor\Plugin_BuddyBoss'   => PRP_CLASS['vendor'] . 'plugin-buddyboss.php',
 	PRP_CLASS_NS . '\Vendor\Add_ACF_Options'    => PRP_CLASS['vendor'] . 'add-acf-options.php',
 	PRP_CLASS_NS . '\Vendor\Add_ACF_Suboptions' => PRP_CLASS['vendor'] . 'add-acf-suboptions.php',
 	PRP_CLASS_NS . '\Vendor\ACF_Manage_Site'    => PRP_CLASS['vendor'] . 'acf-manage-site.php',

@@ -113,6 +113,9 @@ function init() {
 	$prp_acfe = new Vendor\Plugin_ACFE;
 	$prp_acfe->include();
 
+	// BuddyBoss compatibility.
+	$prp_boss = new Vendor\Plugin_BuddyBoss;
+
 	// Instantiate backend classes.
 	if ( is_admin() ) {
 		new Admin\Admin;
