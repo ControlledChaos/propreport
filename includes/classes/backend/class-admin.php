@@ -35,7 +35,7 @@ class Admin extends Classes\Base {
 		global $pagenow;
 
 		// Admin settings.
-		new Admin_Settings_Page;
+		// new Admin_Settings_Page;
 
 		if ( Compat\active_acf_pro() ) {
 			new Vendor\ACF_Manage_Site;
@@ -76,6 +76,9 @@ class Admin extends Classes\Base {
 
 		// Menus & Widgets admin menu items.
 		add_action( 'admin_menu', [ $this, 'menus_widgets' ] );
+
+		// Remove security menu page.
+		add_action( 'admin_menu', [ $this, 'security_page' ] );
 
 		// Primary footer text.
 		add_filter( 'admin_footer_text', [ $this, 'admin_footer_primary' ], 1 );
@@ -302,6 +305,20 @@ class Admin extends Classes\Base {
 			'dashicons-screenoptions',
 			62
 		);
+	}
+
+	/**
+	 * Remove the ClassicPress security menu page
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function security_page() {
+
+		if ( function_exists( 'classicpress_version' ) ) {
+			remove_menu_page( 'security.php' );
+		}
 	}
 
 	/**

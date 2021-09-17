@@ -65,10 +65,6 @@ function init() {
 	// Get compatibility functions.
 	require PRP_PATH . 'includes/vendor/compatibility.php';
 
-	// Instantiate settings classes.
-	new Settings\Settings;
-	new Admin\Content_Settings;
-
 	// Instantiate core classes.
 	new Core\Type_Tax;
 	new Core\Register_Podcast;
@@ -116,9 +112,6 @@ function init() {
 	// Include Advanced Custom Fields: Extended.
 	$prp_acfe = new Vendor\Plugin_ACFE;
 	$prp_acfe->include();
-
-	new Vendor\Sample_ACF_Options;
-	new Vendor\Sample_ACF_Suboptions;
 
 	// Instantiate backend classes.
 	if ( is_admin() ) {
