@@ -60,9 +60,6 @@ define( 'PRP_CLASS_NS', __NAMESPACE__ . '\Classes' );
  */
 define( 'PRP_CLASSES', [
 
-	// Base class.
-	PRP_CLASS_NS . '\Base' => PRP_CLASS['general'] . 'base.php',
-
 	// Core classes.
 	PRP_CLASS_NS . '\Core\Editor_Options'       => PRP_CLASS['core'] . 'editor-options.php',
 	PRP_CLASS_NS . '\Core\Type_Tax'             => PRP_CLASS['core'] . 'type-tax.php',
