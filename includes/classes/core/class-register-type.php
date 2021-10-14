@@ -124,6 +124,16 @@ class Register_Type {
 	protected $show_ui = true;
 
 	/**
+	 * Use block editor
+	 *
+	 * @since  1.0.0
+	 * @access protected
+	 * @var    boolean Whether the post type uses the block editor
+	 * 				   rather than the rich text editor.
+	 */
+	protected $use_block_editor = true;
+
+	/**
 	 * Show in admin menu
 	 *
 	 * @since  1.0.0
@@ -160,7 +170,7 @@ class Register_Type {
 	 * @access protected
 	 * @var    boolean Whether to show in REST API.
 	 */
-	protected $show_in_rest = false;
+	protected $show_in_rest = true;
 
 	/**
 	 * REST controller class
@@ -365,6 +375,9 @@ class Register_Type {
 		// New post type options.
 		add_filter( 'register_post_type_args', [ $this, 'post_type_options' ], 10, 2 );
 
+		// Use block editor.
+		add_filter( 'use_block_editor_for_post_type', [ $this, 'use_block_editor' ], 10, 1 );
+
 		// Rewrite post type labels.
 		add_action( 'wp_loaded', [ $this, 'rewrite_labels' ] );
 
@@ -507,6 +520,23 @@ class Register_Type {
 		} else {
 			return 'post';
 		}
+	}
+
+	/**
+	 * Use block editor
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $post_type
+	 * @return boolean Returns true if the `$use_block_editor` property is true.
+	 */
+	public function use_block_editor( $post_type ) {
+
+		// Only modify this post type.
+		if ( $this->type_key != $post_type ) {
+			return;
+		}
+		return $this->use_block_editor;
 	}
 
 	/**

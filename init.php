@@ -21,6 +21,7 @@ PropReport\Classes\Users      as Users,
 PropReport\Classes\Admin      as Admin,
 PropReport\Classes\Front      as Front,
 PropReport\Classes\Front\Meta as Meta,
+PropReport\Classes\Widgets    as Widgets,
 PropReport\Classes\Vendor     as Vendor;
 
 // Restrict direct access.
@@ -137,20 +138,16 @@ function init() {
 		add_filter( 'wp_fatal_error_handler_enabled', '__return_false' );
 	}
 
-	// Disable block widgets.
-	if ( defined( 'PRP_ALLOW_BLOCK_WIDGETS' ) && ! PRP_ALLOW_BLOCK_WIDGETS ) {
+	/**
+	 * Disable block widgets
+	 *
+	 * Not checking the `wp-config.php` file so the condition is
+	 * commented out. Only use the classic widgets interface.
+	 */
+	// if ( defined( 'PRP_ALLOW_BLOCK_WIDGETS' ) && ! PRP_ALLOW_BLOCK_WIDGETS ) {
 		add_filter( 'gutenberg_use_widgets_block_editor', '__return_false' );
 		add_filter( 'use_widgets_block_editor', '__return_false' );
-	}
-
-	/**
-	 * Allow links manager
-	 *
-	 * @todo Put into an option.
-	 */
-	if ( defined( 'PRP_ALLOW_LINKS_MANAGER' ) && PRP_ALLOW_LINKS_MANAGER ) {
-		add_filter( 'pre_option_link_manager_enabled', '__return_true' );
-	}
+	// }
 
 	// Remove the Draconian capital P filters.
 	remove_filter( 'the_title', 'capital_P_dangit', 11 );

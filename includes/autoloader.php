@@ -34,6 +34,7 @@ define( 'PRP_CLASS', [
 	'vendor'   => PRP_PATH . 'includes/classes/vendor/class-',
 	'admin'    => PRP_PATH . 'includes/classes/backend/class-',
 	'front'    => PRP_PATH . 'includes/classes/frontend/class-',
+	'widgets'  => PRP_PATH . 'includes/classes/widgets/class-',
 	'general'  => PRP_PATH . 'includes/classes/class-',
 ] );
 
@@ -129,7 +130,10 @@ define( 'PRP_CLASSES', [
 	PRP_CLASS_NS . '\Front\Template_Filters' => PRP_CLASS['front'] . 'template-filters.php',
 	PRP_CLASS_NS . '\Front\Content_Sample'   => PRP_CLASS['front'] . 'content-sample.php',
 	PRP_CLASS_NS . '\Front\Meta\Meta_Data'   => PRP_CLASS['front'] . 'meta-data.php',
-	PRP_CLASS_NS . '\Front\Meta\Meta_Tags'   => PRP_CLASS['front'] . 'meta-tags.php'
+	PRP_CLASS_NS . '\Front\Meta\Meta_Tags'   => PRP_CLASS['front'] . 'meta-tags.php',
+
+	// Widget classes.
+	PRP_CLASS_NS . '\Widgets\Add_Widget'    => PRP_CLASS['widgets'] . 'add-widget.php',
 
 	// General/miscellaneous classes.
 
