@@ -79,6 +79,7 @@ class Plugin_BuddyBoss extends Plugin {
 	 * @return self
 	 */
 	public function __construct() {
+
 		parent :: __construct();
 
 		// Change menu label.
@@ -86,6 +87,9 @@ class Plugin_BuddyBoss extends Plugin {
 			add_action( 'admin_menu', [ $this, 'add_admin_menu' ], 5 );
 			add_action( 'admin_init', [ $this, 'remove_admin_menu' ] );
 		}
+
+		// Print admin styles to head.
+		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
 	}
 
 	/**
@@ -147,5 +151,29 @@ class Plugin_BuddyBoss extends Plugin {
 			return false;
 		}
 		return true;
+	}
+
+	/**
+	 * Print page styles
+	 *
+	 * This is for styles that shall not be
+	 * overridden by class extension. Specific
+	 * screens should use print_styles() to
+	 * print styles for its screen.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string
+	 */
+	public function admin_print_styles() {
+
+		// Styles for the tabbed content.
+		$style  = '<style>';
+		if ( ! current_user_can( 'develop' ) ) {
+			$style .= '.nav-tab-wrapper .bp-help { display: none; }';
+		}
+		$style .= '.nav-tab-wrapper .bp-credits { display: none; }';
+		$style .= '</style>';
+		echo $style;
 	}
 }

@@ -24,8 +24,17 @@ class Deactivate {
 	 * @access public
 	 * @return self
 	 */
-	public function __construct() {
-		// Add actions & filters.
+	public function __construct() {}
+
+	/**
+	 * Add & update options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return self
+	 */
+	public function options() {
+		update_option( 'avatar_default', 'mystery' );
 	}
 }
 

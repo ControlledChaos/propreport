@@ -35,6 +35,52 @@ class Activate {
 	public function __construct() {}
 
 	/**
+	 * Add & update options
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return self
+	 */
+	public function options() {
+
+		// Get default avatar option.
+		$avatar = get_option( 'avatar_default' );
+		$fresh  = get_option( 'fresh_site' );
+
+		// Gravatar options to update/override.
+		$gravatar = [
+			'mystery',
+			'mm',
+			'blank',
+			'gravatar_default',
+			'identicon',
+			'wavatar',
+			'monsterid',
+			'retro'
+		];
+
+		// Local avatars for option update.
+		$mystery = esc_url( PRP_URL . 'assets/images/mystery.png' );
+		$blank   = esc_url( PRP_URL . 'assets/images/blank.png' );
+
+		/**
+		 * If this is a fresh site, if no default is set, or if mystery Gravatar
+		 * is set then update to the local mystery person avatar.
+		 */
+		if ( true == $fresh || ! $avatar || 'mystery' == $avatar ) {
+			update_option( 'avatar_default', $mystery );
+
+		// If the blank Gravatar is set then update to the local blank avatar.
+		} elseif ( 'blank' == $avatar ) {
+			update_option( 'avatar_default', $blank );
+
+		// If any Gravatar is set then update to the local mystery person avatar.
+		} elseif ( in_array( $avatar, $gravatar ) ) {
+			update_option( 'avatar_default', $mystery );
+		}
+	}
+
+	/**
 	 * Get plugin row notice
 	 *
 	 * @since  1.0.0

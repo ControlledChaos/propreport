@@ -85,6 +85,9 @@ function activate_plugin() {
 
 	// Instantiate the Activate class.
 	$activate = new Activate\Activate;
+
+	// Update options.
+	$activate->options();
 }
 
 /**
@@ -100,6 +103,9 @@ function deactivate_plugin() {
 
 	// Instantiate the Activate class.
 	$deactivate = new Activate\Deactivate;
+
+	// Update options.
+	$deactivate->options();
 }
 
 /**

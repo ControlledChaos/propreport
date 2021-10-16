@@ -42,7 +42,13 @@ class Users {
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
 
 		// Local user avatars.
-		// new User_Avatars;
+		if (
+			! is_plugin_active( 'user-avatars/user-avatars.php' ) &&
+			! is_plugin_active( 'buddyboss-platform/bp-loader.php' ) &&
+			! is_plugin_active( 'buddyboss-platform-pro/buddyboss-platform-pro.php' )
+		) {
+			new User_Avatars;
+		}
 
 		// Move the personal data menu items.
 		add_action( 'admin_menu', [ $this, 'menus_personal_data' ] );
