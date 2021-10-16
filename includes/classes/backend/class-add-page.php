@@ -172,6 +172,12 @@ class Add_Page {
 
 		// Add screen options.
 		add_action( 'admin_head', [ $this, 'screen_options' ] );
+
+		// Enqueue admin scripts.
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
+
+		// Print admin styles to head.
+		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
 	}
 
 	/**
@@ -696,7 +702,7 @@ class Add_Page {
 	}
 
 	/**
-	 * Enqueue page parent scripts
+	 * Enqueue page scripts
 	 *
 	 * This is for scripts that shall not be
 	 * overridden by class extension. Specific
@@ -707,7 +713,7 @@ class Add_Page {
 	 * @access public
 	 * @return void
 	 */
-	public function admin_parent_enqueue_scripts() {
+	public function admin_enqueue_scripts() {
 
 		// Script suffix.
 		if ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) {
@@ -721,7 +727,7 @@ class Add_Page {
 	}
 
 	/**
-	 * Print page parent styles
+	 * Print page styles
 	 *
 	 * This is for styles that shall not be
 	 * overridden by class extension. Specific
@@ -732,7 +738,7 @@ class Add_Page {
 	 * @access public
 	 * @return string
 	 */
-	public function admin_parent_print_styles() {
+	public function admin_print_styles() {
 
 		// Styles for the tabbed content.
 		$style  = '<style>';
