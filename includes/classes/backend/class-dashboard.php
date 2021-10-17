@@ -49,12 +49,28 @@ class Dashboard {
 		// ClassicPress petitions.
 		unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_petitions'] );
 
+		// Hide Quick Draft (QuickPress) widget.
+		unset( $wp_meta_boxes['dashboard']['side']['core']['dashboard_quick_press'] );
+
+		// Hide At a Glance widget.
+		unset( $wp_meta_boxes['dashboard']['normal']['core']['dashboard_right_now'] );
+
+		// Hide Activity widget.
+		remove_meta_box( 'dashboard_activity', 'dashboard', 'normal' );
+
 		// Site Health.
-		if ( defined( 'PRP_ALLOW_SITE_HEALTH' ) && ! PRP_ALLOW_SITE_HEALTH ) {
-			remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' );
-		}
+		remove_meta_box( 'dashboard_site_health', 'dashboard', 'normal' );
 
 		// PHP update nag.
 		unset( $wp_meta_boxes['dashboard']['normal']['high']['dashboard_php_nag'] );
+
+		// Hide forums activity.
+		if (
+			is_plugin_active( 'bbpress/bbpress.php' ) ||
+			is_plugin_active( 'buddyboss-platform/bp-loader.php' ) ||
+			is_plugin_active( 'buddyboss-platform-pro/buddyboss-platform-pro.php' )
+		) {
+			remove_meta_box( 'bbp-dashboard-right-now', 'dashboard', 'normal' );
+		}
 	}
 }
