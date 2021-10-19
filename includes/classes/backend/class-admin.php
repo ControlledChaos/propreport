@@ -293,7 +293,7 @@ class Admin {
 			'nav-menus.php',
 			'',
 			'dashicons-menu',
-			61
+			60
 		);
 
 		// Add a new top-level Widgets page.
@@ -323,7 +323,7 @@ class Admin {
 
 		if ( 'widgets.php' == $pagenow ) {
 			$parent_file = 'widgets.php';
-		}elseif ( 'nav-menus.php' == $pagenow ) {
+		} elseif ( 'nav-menus.php' == $pagenow ) {
 			$parent_file = 'nav-menus.php';
 		}
 		return $parent_file;
