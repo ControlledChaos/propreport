@@ -285,10 +285,10 @@ class Admin {
 			}
 		}
 
-		// Add a new top-level Menus page.
+		// Add a new top-level Navigation Menus page.
 		add_menu_page(
-			__( 'Menus', 'propreport' ),
-			__( 'Menus', 'propreport' ),
+			__( 'Navigation Menus', 'propreport' ),
+			__( 'Navigation', 'propreport' ),
 			'delete_others_pages',
 			'nav-menus.php',
 			'',
