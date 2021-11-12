@@ -90,7 +90,7 @@ define( 'PRP_CLASSES', [
 	// Users classes.
 	PRP_CLASS_NS . '\Users\Users'           => PRP_CLASS['users'] . 'users.php',
 	PRP_CLASS_NS . '\Users\User_Roles_Caps' => PRP_CLASS['users'] . 'user-roles-caps.php',
-	PRP_CLASS_NS . '\Users\User_Toolbar'    => PRP_CLASS['users'] . 'user-toolbar.php',
+	PRP_CLASS_NS . '\Users\Toolbar'         => PRP_CLASS['users'] . 'toolbar.php',
 	PRP_CLASS_NS . '\Users\User_Avatars'    => PRP_CLASS['users'] . 'user-avatars.php',
 
 	// Vendor classes.

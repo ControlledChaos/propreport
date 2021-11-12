@@ -30,11 +30,6 @@ class Users {
 		// User roles & capabilities.
 		new User_Roles_Caps;
 
-		// User toolbar if the user is logged in.
-		if ( function_exists( 'is_user_logged_in' ) && is_user_logged_in() ) {
-			new User_Toolbar;
-		}
-
 		// Print admin styles to head.
 		add_action( 'admin_print_styles', [ $this, 'admin_print_styles' ], 20 );
 
